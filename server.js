@@ -1,5 +1,14 @@
 // Environment variables'ları yükle
 require('dotenv').config();
+const authRoutes = require('./routes/auth');
+
+const userRoutes = require("./routes/users");
+
+const propertyRoutes = require('./routes/properties');
+
+
+// Middleware import
+const authMiddleware = require("./middleware/authMiddleware");
 
 const express = require("express");
 const app = express();
@@ -10,9 +19,11 @@ const calculateScore10 = require('./scoring');
 app.locals.calculateScore10 = calculateScore10;
 
 // Middleware
+app.use('/api/properties', authMiddleware, propertyRoutes);
+app.use("/api/users", userRoutes);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use('/api/auth', authRoutes);
 // CORS middleware
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
