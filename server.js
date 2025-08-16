@@ -1,3 +1,4 @@
+
 require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
@@ -28,7 +29,10 @@ app.use(express.urlencoded({ extended: true }));
 // CORS middleware
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  );
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   if (req.method === 'OPTIONS') {
     res.sendStatus(200);
@@ -88,6 +92,7 @@ app.get("/", (req, res) => {
   });
 });
 
+// Server başlat
 app.listen(port, () => {
   console.log(`🚀 Server ${port} portunda çalışıyor`);
   console.log(`📡 API: http://localhost:${port}/api`);
