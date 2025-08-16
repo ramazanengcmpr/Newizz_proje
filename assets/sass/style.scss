@@ -1,0 +1,35 @@
+/*--------------------------------------------------------------
+## TABLE OF CONTENTS:
+----------------------------------------------------------------
+01. Variables
+02. Typography
+03. Spacing
+04. General
+05. Header
+06. Footer
+07. Video Modal
+08. slider
+09. Hero
+10. Iconbox
+11. Cards
+12. Layouts
+13. Tabs
+14. Post
+15. Sidebar
+--------------------------------------------------------------*/
+
+@import 'default/variable';
+@import 'default/typography';
+@import 'common/spacing';
+@import 'common/general';
+@import 'common/header';
+@import 'common/footer';
+@import 'common/video';
+@import 'common/slider';
+@import 'shortcode/hero';
+@import 'shortcode/iconbox';
+@import 'shortcode/cards';
+@import 'shortcode/layouts';
+@import 'shortcode/tabs';
+@import 'shortcode/post';
+@import 'shortcode/sidebar';

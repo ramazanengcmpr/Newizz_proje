@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Test - Newizz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Hızlı Test Review Ekleme</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Test Review Ekle</h5>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-success" onclick="addSampleReviews()">Örnek Review'lar Ekle</button>
+                        <button class="btn btn-info ms-2" onclick="checkReviews()">Review'ları Kontrol Et</button>
+                        <button class="btn btn-warning ms-2" onclick="clearReviews()">Tümünü Temizle</button>
+                    </div>
+                </div>
+                
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5>Mevcut Review'lar</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="reviews-display"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Test Sonuçları</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="test-results"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addSampleReviews() {
+            const sampleReviews = [
+                {
+                    _id: 'test_' + Date.now(),
+                    propertyId: 'sample1',
+                    propertyTitle: 'Luxury Villa - Dubai Marina',
+                    propertyLocation: 'Dubai Marina',
+                    userName: 'Ahmet Yılmaz',
+                    userEmail: 'ahmet@example.com',
+                    rating: 5,
+                    comment: 'Harika bir villa! Deniz manzarası muhteşem ve konumu çok merkezi.',
+                    avatarUrl: 'https://via.placeholder.com/50x50',
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    _id: 'test_' + (Date.now() + 1),
+                    propertyId: 'sample2',
+                    propertyTitle: 'Modern Apartment - Downtown Dubai',
+                    propertyLocation: 'Downtown Dubai',
+                    userName: 'Fatma Demir',
+                    userEmail: 'fatma@example.com',
+                    rating: 4,
+                    comment: 'Modern ve şık bir apartman. Burj Khalifa manzarası harika!',
+                    avatarUrl: 'https://via.placeholder.com/50x50',
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    _id: 'test_' + (Date.now() + 2),
+                    propertyId: 'sample3',
+                    propertyTitle: 'Beach House - Palm Jumeirah',
+                    propertyLocation: 'Palm Jumeirah',
+                    userName: 'Mehmet Kaya',
+                    userEmail: 'mehmet@example.com',
+                    rating: 5,
+                    comment: 'Sahil evi hayalimizdi, gerçekten çok güzel! Plaja yakınlık mükemmel.',
+                    avatarUrl: 'https://via.placeholder.com/50x50',
+                    createdAt: new Date().toISOString()
+                }
+            ];
+            
+            const existingReviews = JSON.parse(localStorage.getItem('testReviews') || '[]');
+            const allReviews = existingReviews.concat(sampleReviews);
+            localStorage.setItem('testReviews', JSON.stringify(allReviews));
+            
+            document.getElementById('test-results').innerHTML = `
+                <div class="alert alert-success">
+                    ✅ ${sampleReviews.length} adet örnek review eklendi!
+                </div>
+            `;
+            
+            checkReviews();
+        }
+        
+        function checkReviews() {
+            const reviews = JSON.parse(localStorage.getItem('testReviews') || '[]');
+            const display = document.getElementById('reviews-display');
+            
+            if (reviews.length === 0) {
+                display.innerHTML = '<p class="text-muted">Henüz review yok.</p>';
+                return;
+            }
+            
+            const reviewsHTML = reviews.map(review => `
+                <div class="border-bottom pb-2 mb-2">
+                    <strong>${review.userName}</strong> - ${review.propertyTitle}<br>
+                    <small class="text-muted">Rating: ${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}</small><br>
+                    <small>${review.comment.substring(0, 50)}...</small>
+                </div>
+            `).join('');
+            
+            display.innerHTML = reviewsHTML;
+            
+            document.getElementById('test-results').innerHTML = `
+                <div class="alert alert-info">
+                    📊 Toplam ${reviews.length} review bulundu.
+                </div>
+            `;
+        }
+        
+        function clearReviews() {
+            if (confirm('Tüm test review\'ları silmek istediğinizden emin misiniz?')) {
+                localStorage.removeItem('testReviews');
+                document.getElementById('reviews-display').innerHTML = '<p class="text-muted">Henüz review yok.</p>';
+                document.getElementById('test-results').innerHTML = `
+                    <div class="alert alert-warning">
+                        🗑️ Tüm review'lar silindi.
+                    </div>
+                `;
+            }
+        }
+        
+        // Sayfa yüklendiğinde review'ları kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            checkReviews();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Newizz Real Estate">
+    <meta name="author" content="jirlie.com">
+    <!-- Favicon Icon -->
+    <link rel="icon" href="assets/newizz_img/favlogo.png">
+    <!-- Site Title -->
+    <title>Newizz Real Estate</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <link rel="stylesheet" href="assets/css/light-gallery.min.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/odometer.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+ </head>
+  <body>
+    <!-- Start Preloader -->
+     <div class="cs_preloader cs_center">
+      <div class="cs_preloader_in cs_center cs_radius_50">
+        <span class="cs_center cs_white_bg cs_accent_color">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 7.96075V21.317C23.9993 22.0283 23.7181 22.7104 23.2182 23.2134C22.7182 23.7164 22.0404 23.9993 21.3333 24H16.8889C16.4174 24 15.9652 23.8115 15.6318 23.4761C15.2984 23.1407 15.1111 22.6857 15.1111 22.2113V17.2924C15.1111 17.0552 15.0175 16.8277 14.8508 16.66C14.6841 16.4923 14.458 16.398 14.2222 16.398H9.77778C9.54203 16.398 9.31594 16.4923 9.14924 16.66C8.98254 16.8277 8.88889 17.0552 8.88889 17.2924V22.2113C8.88889 22.6857 8.70159 23.1407 8.36819 23.4761C8.03479 23.8115 7.58261 24 7.11111 24H2.66667C1.95964 23.9993 1.28177 23.7164 0.781828 23.2134C0.281884 22.7104 0.000705969 22.0283 0 21.317V7.96075C0.000665148 7.65188 0.0804379 7.34839 0.231621 7.07957C0.382805 6.81075 0.600296 6.58567 0.863111 6.42605L11.0853 0.255041C11.3617 0.0881572 11.6779 0 12.0002 0C12.3225 0 12.6388 0.0881572 12.9151 0.255041L23.1373 6.42605C23.4001 6.58573 23.6175 6.81083 23.7686 7.07965C23.9197 7.34846 23.9994 7.65192 24 7.96075Z" fill="currentColor"/>
+          </svg>
+          </span>
+      </div>
+     </div>
+    <!-- End Preloader -->
+    <!-- Start Property Grid -->
+    <section class="cs_map_view position-relative">
+      <div class="cs_height_60 cs_height_lg_60"></div>
+      <div class="container">
+        <div class="cs_products_wrap">
+          <h2 class="cs_property_heaading cs_fs_48 cs_semibold cs_mb_30 wow fadeInLeft">Property Listing <span>200</span></h2>
+          <div class="cs_filter_heading cs_style_1 cs_mb_39 wow fadeInDown">
+            <div class="cs_filter_heading_left cs_type_1">
+              <select aria-label="Property type" name="property-category" class="cs_custom_select">
+                <option selected disabled>Types</option>
+                <option value="new-house">House</option>
+                <option value="new-appartment">Appartment</option>
+                <option value="new-villa">Villa</option>
+                <option value="new-bungalow">Bungalow</option>
+                <option value="new-office">Office</option>
+              </select>
+              <select aria-label="Property status" name="property-type" class="cs_custom_select">
+                <option selected disabled>Status</option>
+                <option value="all">All</option>
+                <option value="ready">Ready</option>
+                <option value="off_plan">Off-Plan</option>
+              </select>
+              <div class="cs_price_range">
+                <div class="cs_price_range_in">
+                  <div>
+                    <span>Min</span>
+                    <input type="text" name="minprice" placeholder="AED 1000">
+                  </div>
+                  <div>
+                    <span>Max</span>
+                    <input type="text" name="maxprice" placeholder="AED 990000">
+                  </div>
+                </div>
+              </div>
+              <div class="cs_filter_heading_right cs_type_1">
+                <form class="cs_search_form">
+                  <input type="text" name="search-text" placeholder="Search">
+                  <button type="button" aria-label="Search button" class="cs_search_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <button type="button" aria-label="Filter button" class="cs_btn cs_style_1 cs_accent_bg cs_white_color cs_radius_7">
+                <span class="cs_btn_text">Filters</span>
+                <span class="cs_btn_icon"><i class="fa-solid fa-sliders"></i></span>
+                </button>
+              </div>
+            </div>
+            
+          </div>
+          <div class="row cs_row_gap_20 cs_gap_y_60">
+            <div class="col-xl-7">
+              <div class="cs_propducts_view_area">
+                <div class="row cs_row_gap_20 cs_gap_y_20">
+                  <div class="col-md-6 wow fadeInUp">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_1.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">Beach View Villa</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>Denpasar, Bali, Indonesia
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              3 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              2 baths
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,235 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Ready</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 1,900.000<small></small></h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6 wow fadeInUp" data-wow-delay="150ms">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_2.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">Shangri la New Apartment Unit</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>Bukit Merah, Central Area, Singapore
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              2 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1 bath
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,050 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Off-Plan</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 1,500.000<small></small></h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_3.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">Single Family Ranch House</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>Brooklyn, New York, USA
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              3 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              2 baths
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,567 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Ready</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 985,000</h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_4.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">Northern Apartment</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>Burbank, Los Angeles, USA
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              2 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1 1/2 bath
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,257 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Off-Plan</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 653,000</h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_21.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">The Cowboy Country House</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>Florida, USA
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              3 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              2 baths
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,890 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Ready</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 1,000.000<small></small></h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_6.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">Blue Seagull Beach House</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>Queensland, Australia
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              2 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1 bath
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,587 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Off-Plan</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 800.000<small></small></h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_7.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">East Tower Apartment</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>Jakarta, Indonesia
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              2 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1 bath
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,256 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Ready</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 500.000<small></small></h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_8.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">High Rise Apartment</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>Johor Baru, Malaysia
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              2 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1 bath
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,476 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Off-Plan</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 600.000<small></small></h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_9.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">Gilliard Office Building</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>New York, USA
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              2 baths
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,028 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Readu</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 900.000<small></small></h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_10.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">Silica Townhouse</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>London, England
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1 bath
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,023 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Ready</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 500.000<small></small></h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_11.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">Jackhammer Countryside House</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>Capetown, South Africa
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              3 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              2 baths
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,284 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Ready</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 1,100.000 <small></small></h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_12.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">Central City Apartment</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>Shanghai, China
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              2 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1 baths
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,756 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Ready</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 650.000<small></small></h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_22.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">Rainbow Family House</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>Kansas, USA
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              3 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              2 baths
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,582 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Ready</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 890,000</h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_card cs_style_1 cs_type_2 cs_white_bg cs_radius_15 position-relative">
+                      <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_thumbnail cs_radius_20">
+                      <img src="assets/img/card_img_23.jpg" alt="Card Image">
+                      </a>
+                      <div class="cs_card_content">
+                        <div class="cs_card_text cs_mb_16">
+                          <h3 class="cs_card_title cs_fs_28 cs_semibold cs_body_font cs_mb_10"><a href="property-details.html" aria-label="Click to visit property details">Woodcraft Workshop</a></h3>
+                          <p class="cs_card_subtitle cs_fs_14 cs_mb_18">
+                            <i class="fa-solid fa-location-dot"></i>Jepara, Indonesia
+                          </p>
+                          <ul class="cs_card_features_list cs_mp_0">
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16 8.40005V13.3C16 13.6864 15.744 14 15.4286 14C15.1131 14 14.8571 13.6864 14.8571 13.3V12.6H1.14286V13.3C1.14286 13.6864 0.886857 14 0.571429 14C0.256 14 0 13.6864 0 13.3V8.40005C0 7.24225 0.769143 6.30005 1.71429 6.30005H14.2857C15.2309 6.30005 16 7.24225 16 8.40005Z" fill="currentColor"/>
+                                  <path d="M1.71436 4.9V0.7C1.71436 0.3136 1.97036 0 2.28578 0H13.7144C14.0298 0 14.2858 0.3136 14.2858 0.7V4.9H12.5715V4.2C12.5715 3.4279 12.0589 2.8 11.4286 2.8H9.71435C9.08407 2.8 8.5715 3.4279 8.5715 4.2V4.9H7.42864V4.2C7.42864 3.4279 6.91607 2.8 6.28578 2.8H4.5715C3.94121 2.8 3.42864 3.4279 3.42864 4.2V4.9H1.71436Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1 BR
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M0.586426 10.1277V11.3364C0.586426 12.7334 1.6131 13.8949 2.95153 14.1064V15.0001H3.83049V14.1409H11.1695V15.0001H12.0485V14.1064C13.3869 13.8949 14.4136 12.7334 14.4136 11.3364V10.1277H0.586426Z" fill="currentColor"/>
+                                  <path d="M1.46535 7.48943V2.41863C1.46535 1.56964 2.1561 0.878936 3.00511 0.878936C3.7914 0.878936 4.44145 1.47144 4.5333 2.23333C3.61804 2.43946 2.93216 3.25834 2.93216 4.23492V4.82098H7.03651V4.23492C7.03651 3.25131 6.34075 2.42754 5.41568 2.22879C5.31839 0.983643 4.27481 0 3.00511 0C1.67143 0 0.586391 1.08498 0.586391 2.41863V7.48943H0V9.24867H15V7.48943H1.46535Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1 bath
+                            </li>
+                            <li>
+                              <span class="cs_accent_color">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M1.5 4.5H3V10.5H1.5V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 12H10.5V13.5H4.5V12Z" fill="currentColor"/>
+                                  <path d="M0 0H3.75V3.75H0V0Z" fill="currentColor"/>
+                                  <path d="M0 11.25H3.75V15H0V11.25Z" fill="currentColor"/>
+                                  <path d="M12 4.5H13.5V10.5H12V4.5Z" fill="currentColor"/>
+                                  <path d="M4.5 1.5H10.5V3H4.5V1.5Z" fill="currentColor"/>
+                                  <path d="M11.25 0H15V3.75H11.25V0Z" fill="currentColor"/>
+                                  <path d="M11.25 11.25H15V15H11.25V11.25Z" fill="currentColor"/>
+                                </svg>
+                              </span>
+                              1,020 sqft
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="cs_card_btns_wrapper">
+                          <div class="cs_card_price cs_radius_10">
+                            <h4 class="cs_card_price_for cs_fs_16 cs_normal cs_body_font mb-0">Ready</h4>
+                            <h3 class="cs_card_price_value cs_fs_24 cs_semibold cs_body_font mb-0">AED 215,000</h3>
+                          </div>
+                          <a href="property-details.html" aria-label="Click to visit property details" class="cs_card_btn cs_center cs_accent_bg cs_white_color cs_radius_7">
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          <span><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                        </div>
+                      </div>
+                      <button type="button" aria-label="Heart button" class="cs_heart_icon cs_center cs_white_bg cs_accent_color cs_radius_50 position-absolute"><i class="fa-regular fa-heart"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cs_height_70 cs_height_lg_50"></div>
+              <ul class="cs_pagination_box wow fadeInUp">
+                <li>
+                  <a href="#" aria-label="Pagination arrow left" class="cs_pagination_arrow cs_pagination_arrow_left cs_center cs_accent_color">
+                    <svg width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11 0.96476L11 19.0353C11 19.8904 9.96356 20.326 9.34818 19.7129L0.279353 10.6777C-0.0931162 10.3066 -0.0931163 9.69347 0.279353 9.32222L9.34818 0.286953C9.96356 -0.325993 11 0.109636 11 0.96476Z" fill="currentColor"/>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="cs_pagination_item cs_center active" href="#">1</a>
+                </li>
+                <li>
+                  <a class="cs_pagination_item cs_center" href="#">2</a>
+                </li>
+                <li>
+                  <a class="cs_pagination_item cs_center" href="#">3</a>
+                </li>
+                <li>
+                  <span class="cs_pagination_item cs_center">...</span>
+                </li>
+                <li>
+                  <a class="cs_pagination_item cs_center" href="#">14</a>
+                </li>
+                <li>
+                  <a href="#" aria-label="Pagination arrow right" class="cs_pagination_arrow cs_pagination_arrow_right cs_center cs_accent_color">
+                    <svg width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.32057e-07 0.96476L4.21689e-08 19.0353C4.79022e-09 19.8904 1.03644 20.326 1.65182 19.7129L10.7206 10.6777C11.0931 10.3066 11.0931 9.69347 10.7206 9.32222L1.65182 0.286953C1.03644 -0.325993 8.69435e-07 0.109636 8.32057e-07 0.96476Z" fill="currentColor"/>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-xl-5 wow fadeInRight">
+              <div class="cs_view_map cs_radius_20">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.2528001631!2d-74.14448723354508!3d40.69763123329699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1731562919890!5m2!1sen!2sbd" title="Google map" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cs_height_130 cs_height_lg_80"></div>
+    </section>
+    <!-- End Property Grid -->
+    <!-- Start Testimonial Section -->
+    <section>
+      <div class="container">
+        <div class="cs_review_content_wrapper cs_slider cs_style_1 cs_slider_gap_20 cs_ptb_12 cs_testimonial_slider position-relative">
+          <div class="cs_review_shape_1 cs_accent_bg cs_radius_15 position-absolute"></div>
+          <div class="cs_review_shape_2 position-absolute">
+            <img src="assets/img/dots_shape.svg" alt="Dots Shape">
+          </div>
+          <div class="cs_review_shape_3 position-absolute">
+            <img src="assets/img/icons/quote_1.svg" alt="Quote Shape">
+          </div>
+          <div class="row align-items-center">
+            <div class="col-xxl-3 col-lg-4">
+              <div class="cs_section_heading cs_style_1 cs_mb_30">
+                <h2 class="cs_fs_48 cs_semibold mb-0 wow fadeInLeft">Satisfied Newizz’s Clients</h2>
+              </div>
+            </div>
+            <div class="col-xxl-8 col-lg-8 offset-xxl-1">
+              <div class="cs_full_screen_right cs_remove_overflow">
+                <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0" data-variable-width="0" data-slides-per-view="responsive" data-xs-slides="3" data-sm-slides="3" data-md-slides="3" data-lg-slides="4" data-add-slides="4">
+                  <div class="cs_slider_wrapper">
+                    <div class="cs_slide">
+                      <div class="cs_card cs_style_3 cs_white_bg cs_radius_15">
+                        <div class="cs_avatar cs_style_1 cs_mb_40 cs_mb_lg_24">
+                          <div class="cs_avatar_thumbnail cs_center cs_accent_bg cs_fs_20 cs_white_color cs_radius_50">
+                            <img src="assets/img/avatar_1.jpg" alt="Avatar">
+                          </div>
+                          <div class="cs_avatar_info">
+                            <h3 class="cs_fs_18 cs_semibold cs_body_font">Rowan Jacobson</h3>
+                            <p class="cs_fs_14 mb-0">Jakarta, Indonesia</p>
+                          </div>
+                        </div>
+                        <blockquote>I had quite a hard time selling my house in the city even though my family and I had to immediately pay off the money to buy a house in the countryside. Luckily, Newizz agents helped sell our house at a decent price and fast.</blockquote>
+                        <div class="cs_rating cs_accent_color" data-rating="5">
+                          <div class="cs_rating_percentage"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cs_slide">
+                      <div class="cs_card cs_style_3 cs_white_bg cs_radius_15">
+                        <div class="cs_avatar cs_style_1 cs_mb_40 cs_mb_lg_24">
+                          <div class="cs_avatar_thumbnail cs_center cs_accent_bg cs_fs_20 cs_white_color cs_radius_50">
+                            <img src="assets/img/avatar_2.jpg" alt="Avatar">
+                          </div>
+                          <div class="cs_avatar_info">
+                            <h3 class="cs_fs_18 cs_semibold cs_body_font">Liliana Christ</h3>
+                            <p class="cs_fs_14 mb-0">New York, USA</p>
+                          </div>
+                        </div>
+                        <blockquote>I thought it would be hard to find a house abroad, but Newizz agent made it happen with all its conveniences.</blockquote>
+                        <div class="cs_rating cs_accent_color" data-rating="5">
+                          <div class="cs_rating_percentage"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cs_slide">
+                      <div class="cs_card cs_style_3 cs_white_bg cs_radius_15">
+                        <div class="cs_avatar cs_style_1 cs_mb_40 cs_mb_lg_24">
+                          <div class="cs_avatar_thumbnail cs_center cs_accent_bg cs_fs_20 cs_white_color cs_radius_50">
+                            <img src="assets/img/avatar_3.jpg" alt="Avatar">
+                          </div>
+                          <div class="cs_avatar_info">
+                            <h3 class="cs_fs_18 cs_semibold cs_body_font">Dani Crowford</h3>
+                            <p class="cs_fs_14 mb-0">Johor, Malaysia</p>
+                          </div>
+                        </div>
+                        <blockquote>Even though I'm a boy, my parents are worried that I won't find a decent place to live when studying abroad. Thanks to Newizz, my parents don't have to worry about that anymore.</blockquote>
+                        <div class="cs_rating cs_accent_color" data-rating="5">
+                          <div class="cs_rating_percentage"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cs_slide">
+                      <div class="cs_card cs_style_3 cs_white_bg cs_radius_15">
+                        <div class="cs_avatar cs_style_1 cs_mb_40 cs_mb_lg_24">
+                          <div class="cs_avatar_thumbnail cs_center cs_accent_bg cs_fs_20 cs_white_color cs_radius_50">MP</div>
+                          <div class="cs_avatar_info">
+                            <h3 class="cs_fs_18 cs_semibold cs_body_font">Micky Peso</h3>
+                            <p class="cs_fs_14 mb-0">Florida, USA</p>
+                          </div>
+                        </div>
+                        <blockquote>I had quite a hard time selling my house in the city even though my family and I had to immediately pay off the money to buy a house in the countryside.</blockquote>
+                        <div class="cs_rating cs_accent_color" data-rating="4.5">
+                          <div class="cs_rating_percentage"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cs_slide">
+                      <div class="cs_card cs_style_3 cs_white_bg cs_radius_15">
+                        <div class="cs_avatar cs_style_1 cs_mb_40 cs_mb_lg_24">
+                          <div class="cs_avatar_thumbnail cs_center cs_accent_bg cs_fs_20 cs_white_color cs_radius_50">KJ</div>
+                          <div class="cs_avatar_info">
+                            <h3 class="cs_fs_18 cs_semibold cs_body_font">Kyle Jacson</h3>
+                            <p class="cs_fs_14 mb-0">London, UK</p>
+                          </div>
+                        </div>
+                        <blockquote>I thought it would be hard to find a house abroad, but Newizz agent made it happen with all its conveniences.</blockquote>
+                        <div class="cs_rating cs_accent_color" data-rating="5">
+                          <div class="cs_rating_percentage"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cs_slider_arrows cs_style_1">
+            <div class="cs_left_arrow rounded-circle cs_center cs_accent_color wow fadeInLeft">
+              <i class="fa-solid fa-arrow-left"></i>                                        
+            </div>
+            <div class="cs_right_arrow rounded-circle cs_center cs_accent_color wow fadeInRight">
+              <i class="fa-solid fa-arrow-right"></i>                                  
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cs_height_130 cs_height_lg_80"></div>
+    </section>
+    <!-- End Testimonial Section -->
+    <!-- Start CTA Section -->
+    <section class="cs_cta cs_style_1 cs_type_1 position-relative">
+      <div class="container">
+        <div class="cs_cta_content position-relative">
+          <div class="cs_cta_banner">
+            <img src="assets/img/cta_bg_1.jpg" alt="CTA Banner">
+          </div>
+          <div class="cs_cta_text_wrapper">
+            <div class="cs_cta_text cs_accent_bg cs_radius_15 cs_center_column text-center position-relative">
+              <h2 class="cs_fs_48 cs_semibold cs_white_color cs_mb_50 cs_mb_lg_30 wow fadeInDown">Let’s Find Your Dream House <br> with Newizz!</h2>
+              <a href="property-grid.html" aria-label="Click to visit all property" class="cs_btn cs_style_1 cs_white_bg cs_accent_color cs_medium cs_radius_7 wow fadeInUp">
+              <span class="cs_btn_text">View More</span>
+              </a>
+              <div class="cs_cta_shape_1 position-absolute">
+                <img src="assets/img/dots_shape.svg" alt="Dots Shape">
+              </div>
+              <div class="cs_cta_shape_2 position-absolute">
+                <img src="assets/img/cta_shape_1.svg" alt="Vector Shape">
+              </div>
+              <div class="cs_cta_shape_3 position-absolute">
+                <img src="assets/img/dots_shape.svg" alt="Dots Shape">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End CTA Section -->
+    <!-- Start Scroll To Top Button -->
+     <button type="button" class="cs_scrolltop_btn cs_center cs_radius_50 cs_white_bg cs_accent_color">
+      <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 15 15"><path fill="currentColor" fill-rule="evenodd" d="M7.146 2.146a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1-.708.708L8 3.707V12.5a.5.5 0 0 1-1 0V3.707L3.854 6.854a.5.5 0 1 1-.708-.708z" clip-rule="evenodd"/>
+      </svg>
+     </button>
+    <!-- End Scroll To Top Button -->
+    <!-- Script -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.slick.min.js"></script>
+    <script src="assets/js/light-gallery.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/odometer.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const API_BASE = "https://newizz-backend.onrender.com"; // 🔗 Render backend linkin
+
+    // Harita başlat
+    const map = L.map("map").setView([25.276987, 55.296249], 11); // Dubai merkezi
+
+    // OpenStreetMap tile
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // API'den property verilerini çek
+    fetch(`${API_BASE}/api/properties`)
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(property => {
+                // Koordinatlar varsa marker ekle
+                if (property.latitude && property.longitude) {
+                    L.marker([property.latitude, property.longitude])
+                        .addTo(map)
+                        .bindPopup(`
+                            <strong>${property.title}</strong><br>
+                            ${property.location}<br>
+                            AED ${property.price?.toLocaleString()}
+                        `);
+                }
+            });
+        })
+        .catch(error => {
+            console.error("Harita verisi yüklenemedi:", error);
+        });
+});
+</script>
+
+  </body>
+</html>
