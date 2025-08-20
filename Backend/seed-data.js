@@ -1,16 +1,12 @@
-const mongoose = require('mongoose');
-const Property = require('./models/Property');
+const seedRoutes = require("./routes/seed");
+app.use("/api/seed", seedRoutes);
 
-// MongoDB bağlantısı
-mongoose.connect('mongodb://localhost:27017/newizz_db', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
 
+// backend/seed-data.js
 
 const sampleProperties = [
   {
-    title: "Lüks Villa - Palm Jumeirah",
+    title: "Luxury Villa - Palm Jumeirah",
     location: "Palm Jumeirah, Dubai",
     price: 2500000,
     bedrooms: 4,
@@ -18,7 +14,7 @@ const sampleProperties = [
     size: 4500,
     status: "For Sale",
     propertyType: "Villa",
-    description: "Deniz manzaralı, özel havuzlu lüks villa.",
+    description: "Luxury villa with sea view and private pool.",
     mainImage: "assets/img/card_img_1.jpg",
     roi: 8, payment_plan: 7, delivery: 6, urgency: 8,
     prestige: 9, amenities: 8, velocity: 7, launch: 6,
@@ -33,7 +29,7 @@ const sampleProperties = [
     size: 1200,
     status: "For Rent",
     propertyType: "Apartment",
-    description: "Şehir merkezinde modern tasarımlı daire.",
+    description: "Modern apartment in the city center.",
     mainImage: "assets/img/card_img_2.jpg",
     roi: 6, payment_plan: 5, delivery: 7, urgency: 5,
     prestige: 6, amenities: 7, velocity: 6, launch: 5,
@@ -48,7 +44,7 @@ const sampleProperties = [
     size: 2200,
     status: "For Sale",
     propertyType: "House",
-    description: "Aileler için ideal geniş ev, bahçeli.",
+    description: "Spacious family house with garden.",
     mainImage: "assets/img/card_img_3.jpg",
     roi: 7, payment_plan: 6, delivery: 7, urgency: 6,
     prestige: 6, amenities: 7, velocity: 6, launch: 5,
@@ -63,7 +59,7 @@ const sampleProperties = [
     size: 2800,
     status: "For Sale",
     propertyType: "Condo",
-    description: "Dubai Marina’da deniz manzaralı lüks condo.",
+    description: "Luxury condo with sea view in Dubai Marina.",
     mainImage: "assets/img/card_img_4.jpg",
     roi: 8, payment_plan: 7, delivery: 6, urgency: 7,
     prestige: 8, amenities: 8, velocity: 7, launch: 6,
@@ -78,7 +74,7 @@ const sampleProperties = [
     size: 2100,
     status: "For Sale",
     propertyType: "Townhouse",
-    description: "Arabian Ranches’te modern tasarımlı townhouse.",
+    description: "Modern townhouse in Arabian Ranches.",
     mainImage: "assets/img/card_img_5.jpg",
     roi: 7, payment_plan: 6, delivery: 6, urgency: 6,
     prestige: 7, amenities: 7, velocity: 6, launch: 5,
@@ -93,7 +89,7 @@ const sampleProperties = [
     size: 800,
     status: "For Rent",
     propertyType: "Apartment",
-    description: "Business Bay’de şehir manzaralı stüdyo daire.",
+    description: "Cozy studio apartment with city view.",
     mainImage: "assets/img/card_img_6.jpg",
     roi: 5, payment_plan: 5, delivery: 6, urgency: 5,
     prestige: 6, amenities: 6, velocity: 6, launch: 5,
@@ -108,7 +104,7 @@ const sampleProperties = [
     size: 5000,
     status: "For Sale",
     propertyType: "Apartment",
-    description: "Lüks penthouse, Burj Khalifa manzaralı.",
+    description: "Luxury penthouse with Burj Khalifa view.",
     mainImage: "assets/img/card_img_7.jpg",
     roi: 9, payment_plan: 8, delivery: 7, urgency: 8,
     prestige: 10, amenities: 9, velocity: 8, launch: 7,
@@ -123,7 +119,7 @@ const sampleProperties = [
     size: 4200,
     status: "For Sale",
     propertyType: "Villa",
-    description: "Denize sıfır villa, özel plaj erişimli.",
+    description: "Beachfront villa with private beach access.",
     mainImage: "assets/img/card_img_8.jpg",
     roi: 8, payment_plan: 7, delivery: 7, urgency: 7,
     prestige: 9, amenities: 9, velocity: 7, launch: 6,
@@ -138,7 +134,7 @@ const sampleProperties = [
     size: 1300,
     status: "For Sale",
     propertyType: "Apartment",
-    description: "Akıllı ev sistemleriyle donatılmış modern daire.",
+    description: "Modern apartment with smart home system.",
     mainImage: "assets/img/card_img_9.jpg",
     roi: 6, payment_plan: 6, delivery: 7, urgency: 6,
     prestige: 6, amenities: 7, velocity: 6, launch: 6,
@@ -153,7 +149,7 @@ const sampleProperties = [
     size: 6500,
     status: "For Sale",
     propertyType: "House",
-    description: "Emirates Hills’de ultra lüks villa, havuzlu.",
+    description: "Ultra luxury house with swimming pool.",
     mainImage: "assets/img/card_img_10.jpg",
     roi: 9, payment_plan: 8, delivery: 7, urgency: 9,
     prestige: 10, amenities: 9, velocity: 8, launch: 8,
@@ -168,7 +164,7 @@ const sampleProperties = [
     size: 2000,
     status: "For Sale",
     propertyType: "Condo",
-    description: "Dubai Creek’te modern mimarili condo.",
+    description: "Modern condo with elegant architecture.",
     mainImage: "assets/img/card_img_11.jpg",
     roi: 7, payment_plan: 6, delivery: 6, urgency: 6,
     prestige: 7, amenities: 7, velocity: 6, launch: 6,
@@ -183,7 +179,7 @@ const sampleProperties = [
     size: 1900,
     status: "For Sale",
     propertyType: "Townhouse",
-    description: "Mirdif’te aile yaşamına uygun townhouse.",
+    description: "Townhouse suitable for family living.",
     mainImage: "assets/img/card_img_12.jpg",
     roi: 6, payment_plan: 6, delivery: 6, urgency: 6,
     prestige: 6, amenities: 6, velocity: 6, launch: 6,
@@ -198,7 +194,7 @@ const sampleProperties = [
     size: 750,
     status: "For Rent",
     propertyType: "Apartment",
-    description: "Dubai Silicon Oasis’te uygun fiyatlı daire.",
+    description: "Affordable apartment in Silicon Oasis.",
     mainImage: "assets/img/card_img_13.jpg",
     roi: 5, payment_plan: 5, delivery: 6, urgency: 5,
     prestige: 5, amenities: 5, velocity: 5, launch: 5,
@@ -213,7 +209,7 @@ const sampleProperties = [
     size: 3000,
     status: "For Sale",
     propertyType: "Villa",
-    description: "The Springs’te doğa ile iç içe villa.",
+    description: "Villa surrounded by nature in The Springs.",
     mainImage: "assets/img/card_img_14.jpg",
     roi: 7, payment_plan: 6, delivery: 7, urgency: 7,
     prestige: 7, amenities: 7, velocity: 7, launch: 6,
@@ -228,7 +224,7 @@ const sampleProperties = [
     size: 1500,
     status: "For Sale",
     propertyType: "Condo",
-    description: "DIFC’de iş merkezlerine yakın modern condo.",
+    description: "Modern condo close to financial district.",
     mainImage: "assets/img/card_img_15.jpg",
     roi: 7, payment_plan: 6, delivery: 6, urgency: 6,
     prestige: 7, amenities: 7, velocity: 6, launch: 6,
@@ -236,32 +232,9 @@ const sampleProperties = [
   }
 ];
 
-// Seed fonksiyonu
-async function seedData() {
-  try {
-    await Property.deleteMany({});
-    console.log('Mevcut veriler temizlendi');
+// ✅ Export
+module.exports = sampleProperties;
 
-    for (const property of sampleProperties) {
-      const doc = new Property(property);
-      await doc.save(); // ✅ Score otomatik hesaplanıyor (Property.js içinde pre('save'))
-      console.log(`${property.title} eklendi (skor: ${doc.score})`);
-    }
 
-    const allProperties = await Property.find();
-    console.log(`Toplam ${allProperties.length} property eklendi:`);
 
-    allProperties.forEach(property => {
-      console.log(`- ${property.title}: Score = ${property.score}`);
-    });
 
-  } catch (error) {
-    console.error('Seed data hatası:', error);
-  } finally {
-    mongoose.connection.close();
-    console.log('MongoDB bağlantısı kapatıldı');
-  }
-}
-
-seedData();
-//
