@@ -14,25 +14,28 @@ const authRouter = require('./routes/auth');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// CORS ayarı
+// ✅ CORS ayarı
 const allowedOrigins = [
-  "http://localhost:3000",    // geliştirme
-  "http://127.0.0.1:3000",    // geliştirme alternatifi
+  "http://localhost:3000",        // geliştirme
+  "http://127.0.0.1:3000",        // geliştirme alternatifi
   "https://newizz-frontend.vercel.app" // Vercel frontend domaini
 ];
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.error("❌ CORS Engellendi:", origin);
-      callback(new Error("Not allowed by CORS"));
+  origin: (origin, callback) => {
+    if (!origin) {
+      // Postman, curl gibi araçlarda origin olmayabilir → izin verelim
+      return callback(null, true);
     }
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    console.error("❌ CORS Engellendi:", origin);
+    return callback(new Error("Not allowed by CORS"));
   },
-  credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
 }));
 
 app.use(express.json());
