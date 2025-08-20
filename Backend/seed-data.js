@@ -1,5 +1,3 @@
-const seedRoutes = require("./routes/seed");
-app.use("/api/seed", seedRoutes);
 
 
 // backend/seed-data.js
