@@ -55,7 +55,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// 📌 Slug ile property getir (önce gelmeli!)
+// 📌 Slug ile property getir
 router.get("/slug/:slug", async (req, res) => {
   try {
     const property = await Property.findOne({ slug: req.params.slug });

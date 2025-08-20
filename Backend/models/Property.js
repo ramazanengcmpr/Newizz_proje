@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const { calculate_score_10 } = require('../scoring'); // ✅ skor fonksiyonunu ekledik
+const { calculateScore10 } = require('../scoring'); 
+
 
 // Alt şemalar
 const NearbyItemSchema = new mongoose.Schema({
@@ -116,7 +117,8 @@ propertySchema.pre('save', function (next) {
     type_fit: this.type_fit,
     legal: this.legal
   };
-  this.score = calculate_score_10(factors);
+    this.score = calculateScore10(factors);
+
 
   next();
 });
