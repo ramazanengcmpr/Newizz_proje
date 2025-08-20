@@ -1,6 +1,8 @@
+console.log("✅ seed.js route yüklendi");
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const seedRoutes = require("./routes/seed");
 const { calculateScore, calculateScore10 } = require('./scoring');
 
 // Route modules
@@ -56,6 +58,7 @@ app.use('/api/properties', propertiesRouter);
 app.use('/api/faqs', faqsRouter);
 app.use('/api/tours', toursRouter);
 app.use('/api/auth', authRouter);
+app.use("/api/seed", seedRoutes);
 
 // Test route
 app.get('/', (req, res) => {
