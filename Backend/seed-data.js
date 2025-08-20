@@ -1,5 +1,3 @@
-
-
 // backend/seed-data.js
 
 const sampleProperties = [
@@ -16,7 +14,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_1.jpg",
     roi: 8, payment_plan: 7, delivery: 6, urgency: 8,
     prestige: 9, amenities: 8, velocity: 7, launch: 6,
-    price_per_sqm: 7, horizon: 8, type_fit: 7, legal: 8
+    price_per_sqm: 7, horizon: 8, type_fit: 7, legal: 8,
+    lat: 25.112, lng: 55.139
   },
   {
     title: "Modern Apartment - Downtown",
@@ -31,7 +30,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_2.jpg",
     roi: 6, payment_plan: 5, delivery: 7, urgency: 5,
     prestige: 6, amenities: 7, velocity: 6, launch: 5,
-    price_per_sqm: 6, horizon: 5, type_fit: 6, legal: 7
+    price_per_sqm: 6, horizon: 5, type_fit: 6, legal: 7,
+    lat: 25.1972, lng: 55.2744
   },
   {
     title: "Family House - Jumeirah Village",
@@ -46,7 +46,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_3.jpg",
     roi: 7, payment_plan: 6, delivery: 7, urgency: 6,
     prestige: 6, amenities: 7, velocity: 6, launch: 5,
-    price_per_sqm: 6, horizon: 6, type_fit: 6, legal: 6
+    price_per_sqm: 6, horizon: 6, type_fit: 6, legal: 6,
+    lat: 25.055, lng: 55.209
   },
   {
     title: "Luxury Condo - Dubai Marina",
@@ -61,7 +62,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_4.jpg",
     roi: 8, payment_plan: 7, delivery: 6, urgency: 7,
     prestige: 8, amenities: 8, velocity: 7, launch: 6,
-    price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 8
+    price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 8,
+    lat: 25.080, lng: 55.140
   },
   {
     title: "Townhouse - Arabian Ranches",
@@ -76,7 +78,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_5.jpg",
     roi: 7, payment_plan: 6, delivery: 6, urgency: 6,
     prestige: 7, amenities: 7, velocity: 6, launch: 5,
-    price_per_sqm: 6, horizon: 6, type_fit: 7, legal: 7
+    price_per_sqm: 6, horizon: 6, type_fit: 7, legal: 7,
+    lat: 25.030, lng: 55.255
   },
   {
     title: "Cozy Apartment - Business Bay",
@@ -91,7 +94,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_6.jpg",
     roi: 5, payment_plan: 5, delivery: 6, urgency: 5,
     prestige: 6, amenities: 6, velocity: 6, launch: 5,
-    price_per_sqm: 5, horizon: 5, type_fit: 5, legal: 6
+    price_per_sqm: 5, horizon: 5, type_fit: 5, legal: 6,
+    lat: 25.185, lng: 55.273
   },
   {
     title: "Penthouse - Downtown Dubai",
@@ -106,7 +110,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_7.jpg",
     roi: 9, payment_plan: 8, delivery: 7, urgency: 8,
     prestige: 10, amenities: 9, velocity: 8, launch: 7,
-    price_per_sqm: 8, horizon: 8, type_fit: 9, legal: 9
+    price_per_sqm: 8, horizon: 8, type_fit: 9, legal: 9,
+    lat: 25.1975, lng: 55.2743
   },
   {
     title: "Beachfront Villa - JBR",
@@ -121,7 +126,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_8.jpg",
     roi: 8, payment_plan: 7, delivery: 7, urgency: 7,
     prestige: 9, amenities: 9, velocity: 7, launch: 6,
-    price_per_sqm: 8, horizon: 7, type_fit: 8, legal: 8
+    price_per_sqm: 8, horizon: 7, type_fit: 8, legal: 8,
+    lat: 25.080, lng: 55.133
   },
   {
     title: "Smart Apartment - Al Barsha",
@@ -136,7 +142,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_9.jpg",
     roi: 6, payment_plan: 6, delivery: 7, urgency: 6,
     prestige: 6, amenities: 7, velocity: 6, launch: 6,
-    price_per_sqm: 6, horizon: 6, type_fit: 6, legal: 6
+    price_per_sqm: 6, horizon: 6, type_fit: 6, legal: 6,
+    lat: 25.110, lng: 55.212
   },
   {
     title: "Luxury House - Emirates Hills",
@@ -151,7 +158,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_10.jpg",
     roi: 9, payment_plan: 8, delivery: 7, urgency: 9,
     prestige: 10, amenities: 9, velocity: 8, launch: 8,
-    price_per_sqm: 9, horizon: 9, type_fit: 9, legal: 9
+    price_per_sqm: 9, horizon: 9, type_fit: 9, legal: 9,
+    lat: 25.083, lng: 55.173
   },
   {
     title: "Modern Condo - Dubai Creek",
@@ -166,7 +174,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_11.jpg",
     roi: 7, payment_plan: 6, delivery: 6, urgency: 6,
     prestige: 7, amenities: 7, velocity: 6, launch: 6,
-    price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 7
+    price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 7,
+    lat: 25.200, lng: 55.340
   },
   {
     title: "Townhouse - Mirdif",
@@ -181,7 +190,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_12.jpg",
     roi: 6, payment_plan: 6, delivery: 6, urgency: 6,
     prestige: 6, amenities: 6, velocity: 6, launch: 6,
-    price_per_sqm: 6, horizon: 6, type_fit: 6, legal: 6
+    price_per_sqm: 6, horizon: 6, type_fit: 6, legal: 6,
+    lat: 25.215, lng: 55.415
   },
   {
     title: "Apartment - Dubai Silicon Oasis",
@@ -196,7 +206,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_13.jpg",
     roi: 5, payment_plan: 5, delivery: 6, urgency: 5,
     prestige: 5, amenities: 5, velocity: 5, launch: 5,
-    price_per_sqm: 5, horizon: 5, type_fit: 5, legal: 5
+    price_per_sqm: 5, horizon: 5, type_fit: 5, legal: 5,
+    lat: 25.126, lng: 55.387
   },
   {
     title: "Villa - The Springs",
@@ -211,7 +222,8 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_14.jpg",
     roi: 7, payment_plan: 6, delivery: 7, urgency: 7,
     prestige: 7, amenities: 7, velocity: 7, launch: 6,
-    price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 7
+    price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 7,
+    lat: 25.065, lng: 55.223
   },
   {
     title: "Condo - DIFC",
@@ -226,13 +238,10 @@ const sampleProperties = [
     mainImage: "assets/img/card_img_15.jpg",
     roi: 7, payment_plan: 6, delivery: 6, urgency: 6,
     prestige: 7, amenities: 7, velocity: 6, launch: 6,
-    price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 7
+    price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 7,
+    lat: 25.210, lng: 55.280
   }
 ];
 
 // ✅ Export
 module.exports = sampleProperties;
-
-
-
-
