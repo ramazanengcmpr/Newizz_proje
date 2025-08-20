@@ -1,235 +1,267 @@
-const { calculateScore } = require('./scoring');
 const mongoose = require('mongoose');
-require('dotenv').config();
-
 const Property = require('./models/Property');
-const Review = require('./models/Review');
-const FAQ = require('./models/FAQ');
 
-// ✅ MongoDB bağlantısı
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/newizz', {
+// MongoDB bağlantısı
+mongoose.connect('mongodb://localhost:27017/newizz_db', {
   useNewUrlParser: true,
   useUnifiedTopology: true
-})
-.then(() => console.log("✅ MongoDB'ye başarıyla bağlandı"))
-.catch(err => {
-  console.error("❌ MongoDB bağlantı hatası:", err);
-  process.exit(1);
 });
 
-// ==== DÜZELTİLMİŞ TEST VERİLERİ ====
 
-// Properties
 const sampleProperties = [
   {
-    title: "Lüks Villa - Deniz Manzaralı",
+    title: "Lüks Villa - Palm Jumeirah",
+    location: "Palm Jumeirah, Dubai",
     price: 2500000,
-    location: "Beşiktaş, İstanbul",
     bedrooms: 4,
-    bathrooms: 3,
-    size: 280,                // m²
+    bathrooms: 5,
+    size: 4500,
     status: "For Sale",
-    score: 4.8,               // opsiyonel
-    description:
-      "Deniz manzaralı, lüks donanımlı, özel havuzlu villa. Modern tasarım ve yüksek kaliteli malzemeler kullanılmıştır.",
-    mainImage: "/assets/img/property_img_1.jpg",
-    images: [
-      "/assets/img/property_img_1.jpg",
-      "/assets/img/property_img_2.jpg",
-      "/assets/img/property_img_3.jpg"
-    ],
-    features: [
-      "Özel Havuz",
-      "Akıllı Ev Sistemi",
-      "Güvenlik Sistemi",
-      "Garaj (2 Araç)",
-      "Bahçe",
-      "Teras",
-      "Klima",
-      "Asansör"
-    ],
-    floorPlans: [
-      {
-        title: "Zemin Kat",
-        image: "/assets/img/floor_1.png",
-        description: "Oturma odası, yemek odası, mutfak, 1 yatak odası"
-      },
-      {
-        title: "1. Kat",
-        image: "/assets/img/floor_1.png",
-        description: "3 yatak odası, 2 banyo, çalışma odası"
-      }
-    ],
-    videoUrl: "https://www.youtube.com/watch?v=example1",
-    virtualVideoUrl: "https://www.youtube.com/watch?v=example2",
-    nearby: {
-      education: [
-        { name: "İstanbul Teknik Üniversitesi", distance: "1.2 km", type: "Üniversite" },
-        { name: "Beşiktaş Anadolu Lisesi", distance: "0.8 km", type: "Lise" }
-      ],
-      stores: [
-        { name: "Carrefour", distance: "0.5 km", type: "Süpermarket" },
-        { name: "Migros", distance: "1.0 km", type: "Süpermarket" }
-      ],
-      health: [
-        { name: "Beşiktaş Devlet Hastanesi", distance: "1.5 km", type: "Hastane" },
-        { name: "Özel Tıp Merkezi", distance: "0.7 km", type: "Sağlık Merkezi" }
-      ]
-    },
     propertyType: "Villa",
-    slug: "luks-villa-deniz-manzarali"
+    description: "Deniz manzaralı, özel havuzlu lüks villa.",
+    mainImage: "assets/img/card_img_1.jpg",
+    roi: 8, payment_plan: 7, delivery: 6, urgency: 8,
+    prestige: 9, amenities: 8, velocity: 7, launch: 6,
+    price_per_sqm: 7, horizon: 8, type_fit: 7, legal: 8
   },
   {
-    title: "Modern Daire - Şehir Merkezi",
-    price: 850000,
-    location: "Kadıköy, İstanbul",
+    title: "Modern Apartment - Downtown",
+    location: "Downtown Dubai",
+    price: 1200000,
     bedrooms: 2,
-    bathrooms: 1,
-    size: 95,                 // m²
-    status: "For Sale",
-    score: 4.5,               // opsiyonel
-    description:
-      "Şehir merkezinde, ulaşımı kolay, modern tasarımlı daire. Metro ve otobüs duraklarına yakın.",
-    mainImage: "/assets/img/card_img_1.jpg",
-    images: [
-      "/assets/img/card_img_1.jpg",
-      "/assets/img/card_img_2.jpg",
-      "/assets/img/card_img_3.jpg"
-    ],
-    features: [
-      "Klima",
-      "Asansör",
-      "Güvenlik",
-      "Otopark",
-      "Balkon",
-      "Ebeveyn Banyosu"
-    ],
-    floorPlans: [
-      {
-        title: "Tek Kat",
-        image: "/assets/img/floor_1.png",
-        description: "2 yatak odası, 1 banyo, oturma odası, mutfak"
-      }
-    ],
-    videoUrl: "https://www.youtube.com/watch?v=example3",
-    virtualVideoUrl: null,
-    nearby: {
-      education: [
-        { name: "Kadıköy Anadolu Lisesi", distance: "0.3 km", type: "Lise" },
-        { name: "Marmara Üniversitesi", distance: "2.1 km", type: "Üniversite" }
-      ],
-      stores: [
-        { name: "A101", distance: "0.2 km", type: "Market" },
-        { name: "BİM", distance: "0.4 km", type: "Market" }
-      ],
-      health: [
-        { name: "Kadıköy Devlet Hastanesi", distance: "1.8 km", type: "Hastane" },
-        { name: "Özel Klinik", distance: "0.6 km", type: "Klinik" }
-      ]
-    },
+    bathrooms: 2,
+    size: 1200,
+    status: "For Rent",
     propertyType: "Apartment",
-    slug: "modern-daire-sehir-merkezi"
+    description: "Şehir merkezinde modern tasarımlı daire.",
+    mainImage: "assets/img/card_img_2.jpg",
+    roi: 6, payment_plan: 5, delivery: 7, urgency: 5,
+    prestige: 6, amenities: 7, velocity: 6, launch: 5,
+    price_per_sqm: 6, horizon: 5, type_fit: 6, legal: 7
+  },
+  {
+    title: "Family House - Jumeirah Village",
+    location: "Jumeirah Village Circle",
+    price: 1750000,
+    bedrooms: 3,
+    bathrooms: 3,
+    size: 2200,
+    status: "For Sale",
+    propertyType: "House",
+    description: "Aileler için ideal geniş ev, bahçeli.",
+    mainImage: "assets/img/card_img_3.jpg",
+    roi: 7, payment_plan: 6, delivery: 7, urgency: 6,
+    prestige: 6, amenities: 7, velocity: 6, launch: 5,
+    price_per_sqm: 6, horizon: 6, type_fit: 6, legal: 6
+  },
+  {
+    title: "Luxury Condo - Dubai Marina",
+    location: "Dubai Marina",
+    price: 2000000,
+    bedrooms: 3,
+    bathrooms: 4,
+    size: 2800,
+    status: "For Sale",
+    propertyType: "Condo",
+    description: "Dubai Marina’da deniz manzaralı lüks condo.",
+    mainImage: "assets/img/card_img_4.jpg",
+    roi: 8, payment_plan: 7, delivery: 6, urgency: 7,
+    prestige: 8, amenities: 8, velocity: 7, launch: 6,
+    price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 8
+  },
+  {
+    title: "Townhouse - Arabian Ranches",
+    location: "Arabian Ranches",
+    price: 1600000,
+    bedrooms: 3,
+    bathrooms: 3,
+    size: 2100,
+    status: "For Sale",
+    propertyType: "Townhouse",
+    description: "Arabian Ranches’te modern tasarımlı townhouse.",
+    mainImage: "assets/img/card_img_5.jpg",
+    roi: 7, payment_plan: 6, delivery: 6, urgency: 6,
+    prestige: 7, amenities: 7, velocity: 6, launch: 5,
+    price_per_sqm: 6, horizon: 6, type_fit: 7, legal: 7
+  },
+  {
+    title: "Cozy Apartment - Business Bay",
+    location: "Business Bay",
+    price: 950000,
+    bedrooms: 1,
+    bathrooms: 1,
+    size: 800,
+    status: "For Rent",
+    propertyType: "Apartment",
+    description: "Business Bay’de şehir manzaralı stüdyo daire.",
+    mainImage: "assets/img/card_img_6.jpg",
+    roi: 5, payment_plan: 5, delivery: 6, urgency: 5,
+    prestige: 6, amenities: 6, velocity: 6, launch: 5,
+    price_per_sqm: 5, horizon: 5, type_fit: 5, legal: 6
+  },
+  {
+    title: "Penthouse - Downtown Dubai",
+    location: "Downtown Dubai",
+    price: 4500000,
+    bedrooms: 5,
+    bathrooms: 6,
+    size: 5000,
+    status: "For Sale",
+    propertyType: "Apartment",
+    description: "Lüks penthouse, Burj Khalifa manzaralı.",
+    mainImage: "assets/img/card_img_7.jpg",
+    roi: 9, payment_plan: 8, delivery: 7, urgency: 8,
+    prestige: 10, amenities: 9, velocity: 8, launch: 7,
+    price_per_sqm: 8, horizon: 8, type_fit: 9, legal: 9
+  },
+  {
+    title: "Beachfront Villa - JBR",
+    location: "Jumeirah Beach Residence",
+    price: 3800000,
+    bedrooms: 4,
+    bathrooms: 5,
+    size: 4200,
+    status: "For Sale",
+    propertyType: "Villa",
+    description: "Denize sıfır villa, özel plaj erişimli.",
+    mainImage: "assets/img/card_img_8.jpg",
+    roi: 8, payment_plan: 7, delivery: 7, urgency: 7,
+    prestige: 9, amenities: 9, velocity: 7, launch: 6,
+    price_per_sqm: 8, horizon: 7, type_fit: 8, legal: 8
+  },
+  {
+    title: "Smart Apartment - Al Barsha",
+    location: "Al Barsha",
+    price: 1100000,
+    bedrooms: 2,
+    bathrooms: 2,
+    size: 1300,
+    status: "For Sale",
+    propertyType: "Apartment",
+    description: "Akıllı ev sistemleriyle donatılmış modern daire.",
+    mainImage: "assets/img/card_img_9.jpg",
+    roi: 6, payment_plan: 6, delivery: 7, urgency: 6,
+    prestige: 6, amenities: 7, velocity: 6, launch: 6,
+    price_per_sqm: 6, horizon: 6, type_fit: 6, legal: 6
+  },
+  {
+    title: "Luxury House - Emirates Hills",
+    location: "Emirates Hills",
+    price: 5500000,
+    bedrooms: 6,
+    bathrooms: 7,
+    size: 6500,
+    status: "For Sale",
+    propertyType: "House",
+    description: "Emirates Hills’de ultra lüks villa, havuzlu.",
+    mainImage: "assets/img/card_img_10.jpg",
+    roi: 9, payment_plan: 8, delivery: 7, urgency: 9,
+    prestige: 10, amenities: 9, velocity: 8, launch: 8,
+    price_per_sqm: 9, horizon: 9, type_fit: 9, legal: 9
+  },
+  {
+    title: "Modern Condo - Dubai Creek",
+    location: "Dubai Creek Harbour",
+    price: 1800000,
+    bedrooms: 3,
+    bathrooms: 3,
+    size: 2000,
+    status: "For Sale",
+    propertyType: "Condo",
+    description: "Dubai Creek’te modern mimarili condo.",
+    mainImage: "assets/img/card_img_11.jpg",
+    roi: 7, payment_plan: 6, delivery: 6, urgency: 6,
+    prestige: 7, amenities: 7, velocity: 6, launch: 6,
+    price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 7
+  },
+  {
+    title: "Townhouse - Mirdif",
+    location: "Mirdif",
+    price: 1400000,
+    bedrooms: 3,
+    bathrooms: 3,
+    size: 1900,
+    status: "For Sale",
+    propertyType: "Townhouse",
+    description: "Mirdif’te aile yaşamına uygun townhouse.",
+    mainImage: "assets/img/card_img_12.jpg",
+    roi: 6, payment_plan: 6, delivery: 6, urgency: 6,
+    prestige: 6, amenities: 6, velocity: 6, launch: 6,
+    price_per_sqm: 6, horizon: 6, type_fit: 6, legal: 6
+  },
+  {
+    title: "Apartment - Dubai Silicon Oasis",
+    location: "Dubai Silicon Oasis",
+    price: 900000,
+    bedrooms: 1,
+    bathrooms: 1,
+    size: 750,
+    status: "For Rent",
+    propertyType: "Apartment",
+    description: "Dubai Silicon Oasis’te uygun fiyatlı daire.",
+    mainImage: "assets/img/card_img_13.jpg",
+    roi: 5, payment_plan: 5, delivery: 6, urgency: 5,
+    prestige: 5, amenities: 5, velocity: 5, launch: 5,
+    price_per_sqm: 5, horizon: 5, type_fit: 5, legal: 5
+  },
+  {
+    title: "Villa - The Springs",
+    location: "The Springs",
+    price: 2200000,
+    bedrooms: 4,
+    bathrooms: 4,
+    size: 3000,
+    status: "For Sale",
+    propertyType: "Villa",
+    description: "The Springs’te doğa ile iç içe villa.",
+    mainImage: "assets/img/card_img_14.jpg",
+    roi: 7, payment_plan: 6, delivery: 7, urgency: 7,
+    prestige: 7, amenities: 7, velocity: 7, launch: 6,
+    price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 7
+  },
+  {
+    title: "Condo - DIFC",
+    location: "Dubai International Financial Centre",
+    price: 1950000,
+    bedrooms: 2,
+    bathrooms: 2,
+    size: 1500,
+    status: "For Sale",
+    propertyType: "Condo",
+    description: "DIFC’de iş merkezlerine yakın modern condo.",
+    mainImage: "assets/img/card_img_15.jpg",
+    roi: 7, payment_plan: 6, delivery: 6, urgency: 6,
+    prestige: 7, amenities: 7, velocity: 6, launch: 6,
+    price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 7
   }
 ];
 
-// Reviews
-const sampleReviews = [
-  {
-    propertyId: null, // seed sırasında ilişkilendirilecek
-    userName: "Ahmet Yılmaz",
-    userAvatar: "/assets/img/avatar_1.jpg",
-    rating: 5,
-    comment:
-      "Harika bir ev! Deniz manzarası muhteşem ve konumu çok merkezi. Kesinlikle tavsiye ederim."
-  },
-  {
-    propertyId: null,
-    userName: "Ayşe Demir",
-    userAvatar: "/assets/img/avatar_2.jpg",
-    rating: 4,
-    comment: "Güzel ev ama fiyat biraz yüksek. Yine de kalitesi fiyatına değer."
-  },
-  {
-    propertyId: null,
-    userName: "Mehmet Kaya",
-    userAvatar: "/assets/img/avatar_3.jpg",
-    rating: 5,
-    comment:
-      "Mükemmel! Tüm beklentilerimi karşıladı. Özellikle güvenlik sistemi çok iyi."
-  }
-];
-
-// FAQs
-const sampleFAQs = [
-  {
-    question: "Emlak alım-satım işlemlerinde hangi belgeler gerekli?",
-    answer:
-      "Kimlik fotokopisi, tapu, emlak beyannamesi, vergi levhası ve gerekli diğer belgeler gereklidir.",
-    category: "Property",
-    order: 1
-  },
-  {
-    question: "Kredi çekmek için hangi şartlar aranır?",
-    answer:
-      "Düzenli gelir, kredi notu, teminat ve bankanın belirlediği diğer şartlar aranır.",
-    category: "Payment",
-    order: 2
-  },
-  {
-    question: "Emlak vergisi ne zaman ödenir?",
-    answer:
-      "Emlak vergisi yılda iki taksit halinde Mart ve Kasım aylarında ödenir.",
-    category: "Legal",
-    order: 3
-  },
-  {
-    question: "Tapu işlemleri ne kadar sürer?",
-    answer: "Normal şartlarda tapu işlemleri 1–3 iş günü içinde tamamlanır.",
-    category: "Property",
-    order: 4
-  }
-];
-
-const samplePropertiesWithScore = sampleProperties.map(property => {
-  return {
-    ...property,
-    score: calculateScore(property) // scoring.js fonksiyonunu kullan
-  };
-});
-
-
-// --- Veritabanını doldur ---
-async function seedDatabase() {
+// Seed fonksiyonu
+async function seedData() {
   try {
     await Property.deleteMany({});
-    await Review.deleteMany({});
-    await FAQ.deleteMany({});
+    console.log('Mevcut veriler temizlendi');
 
-    const savedProperties = await Property.insertMany(samplePropertiesWithScore);
+    for (const property of sampleProperties) {
+      const doc = new Property(property);
+      await doc.save(); // ✅ Score otomatik hesaplanıyor (Property.js içinde pre('save'))
+      console.log(`${property.title} eklendi (skor: ${doc.score})`);
+    }
 
-    console.log(`${savedProperties.length} property eklendi`);
+    const allProperties = await Property.find();
+    console.log(`Toplam ${allProperties.length} property eklendi:`);
 
-    const reviewsWithPropertyId = sampleReviews.map((review, index) => ({
-      ...review,
-      propertyId: savedProperties[index % savedProperties.length]._id
-    }));
-    const savedReviews = await Review.insertMany(reviewsWithPropertyId);
-    console.log(`${savedReviews.length} review eklendi`);
+    allProperties.forEach(property => {
+      console.log(`- ${property.title}: Score = ${property.score}`);
+    });
 
-    const savedFAQs = await FAQ.insertMany(sampleFAQs);
-    console.log(`${savedFAQs.length} FAQ eklendi`);
-
-    console.log('✅ Test verisi başarıyla eklendi!');
-    process.exit(0);
   } catch (error) {
-    console.error('❌ Test verisi eklenirken hata:', error);
-    process.exit(1);
+    console.error('Seed data hatası:', error);
+  } finally {
+    mongoose.connection.close();
+    console.log('MongoDB bağlantısı kapatıldı');
   }
 }
 
-// Script çalıştırılırsa seed işlemini başlat
-if (require.main === module) {
-  seedDatabase();
-}
-
-module.exports = { seedDatabase };
+seedData();
+//

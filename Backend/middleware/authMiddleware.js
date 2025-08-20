@@ -8,7 +8,8 @@ function authMiddleware(req, res, next) {
         return res.status(401).json({ message: "❌ Token bulunamadı" });
     }
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    const secret = process.env.JWT_SECRET || "default_secret";
+    jwt.verify(token, secret, (err, user) => {
         if (err) {
             return res.status(403).json({ message: "❌ Token geçersiz" });
         }

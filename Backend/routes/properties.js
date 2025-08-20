@@ -1,33 +1,53 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const Property = require('../models/Property');
-const Review = require('../models/Review');
+const Property = require("../models/Property");
+const Review = require("../models/Review");
 
-// Tüm property'leri getir (score eklenmiş)
-router.get('/', async (req, res) => {
+// Score hesaplama yardımcı fonksiyon
+function withScore(req, property) {
+  const calculateScore10 = req.app.locals.calculateScore10;
+  return {
+    ...property.toObject(),
+    score: calculateScore10({
+      roi: property.roi,
+      payment_plan: property.payment_plan,
+      delivery: property.delivery,
+      urgency: property.urgency,
+      prestige: property.prestige,
+      amenities: property.amenities,
+      velocity: property.velocity,
+      launch: property.launch,
+      price_per_sqm: property.price_per_sqm,
+      horizon: property.horizon,
+      type_fit: property.type_fit,
+      legal: property.legal
+    })
+  };
+}
+
+// 📌 Tüm property'leri getir (filtre + score eklenmiş)
+router.get("/", async (req, res) => {
   try {
-    const properties = await Property.find().sort({ createdAt: -1 });
+    const { type, status, location, bedrooms, minPrice, maxPrice } = req.query;
+    let filter = {};
 
-    // server.js içinde app.locals ile eklenen fonksiyon
-    const calculateScore10 = req.app.locals.calculateScore10;
+    // ✅ Çoklu filtre desteği
+    if (type) filter.propertyType = Array.isArray(type) ? { $in: type } : type;
+    if (status) filter.status = Array.isArray(status) ? { $in: status } : status;
+    if (location) filter.location = Array.isArray(location) ? { $in: location } : location;
+    if (bedrooms) {
+      filter.bedrooms = Array.isArray(bedrooms)
+        ? { $in: bedrooms.map(n => Number(n)) }
+        : Number(bedrooms);
+    }
+    if (minPrice || maxPrice) {
+      filter.price = {};
+      if (minPrice) filter.price.$gte = Number(minPrice);
+      if (maxPrice) filter.price.$lte = Number(maxPrice);
+    }
 
-    const withScores = properties.map(p => ({
-      ...p.toObject(),
-      score: calculateScore10({
-        roi: p.roi,
-        payment_plan: p.payment_plan,
-        delivery: p.delivery,
-        urgency: p.urgency,
-        prestige: p.prestige,
-        amenities: p.amenities,
-        velocity: p.velocity,
-        launch: p.launch,
-        price_per_sqm: p.price_per_sqm,
-        horizon: p.horizon,
-        type_fit: p.type_fit,
-        legal: p.legal
-      })
-    }));
+    const properties = await Property.find(filter).sort({ createdAt: -1 });
+    const withScores = properties.map(p => withScore(req, p));
 
     res.json(withScores);
   } catch (error) {
@@ -35,69 +55,48 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Tek property getir (ID ile)
-router.get('/:id', async (req, res) => {
-  try {
-    const property = await Property.findById(req.params.id);
-    if (!property) {
-      return res.status(404).json({ message: 'Property bulunamadı' });
-    }
-
-    const calculateScore10 = req.app.locals.calculateScore10;
-    const propertyWithScore = {
-      ...property.toObject(),
-      score: calculateScore10({
-        roi: property.roi,
-        payment_plan: property.payment_plan,
-        delivery: property.delivery,
-        urgency: property.urgency,
-        prestige: property.prestige,
-        amenities: property.amenities,
-        velocity: property.velocity,
-        launch: property.launch,
-        price_per_sqm: property.price_per_sqm,
-        horizon: property.horizon,
-        type_fit: property.type_fit,
-        legal: property.legal
-      })
-    };
-
-    res.json(propertyWithScore);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-// Slug ile property getir
-router.get('/slug/:slug', async (req, res) => {
+// 📌 Slug ile property getir (önce gelmeli!)
+router.get("/slug/:slug", async (req, res) => {
   try {
     const property = await Property.findOne({ slug: req.params.slug });
     if (!property) {
-      return res.status(404).json({ message: 'Property bulunamadı' });
+      return res.status(404).json({ message: "Property bulunamadı" });
     }
-    res.json(property);
+    res.json(withScore(req, property));
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-// Property yorumlarını getir
-router.get('/:id/reviews', async (req, res) => {
+// 📌 Tek property getir (ID ile)
+router.get("/:id", async (req, res) => {
   try {
-    const reviews = await Review.find({ propertyId: req.params.id })
-      .sort({ createdAt: -1 });
+    const property = await Property.findById(req.params.id);
+    if (!property) {
+      return res.status(404).json({ message: "Property bulunamadı" });
+    }
+    res.json(withScore(req, property));
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// 📌 Property yorumlarını getir
+router.get("/:id/reviews", async (req, res) => {
+  try {
+    const reviews = await Review.find({ propertyId: req.params.id }).sort({ createdAt: -1 });
     res.json(reviews);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-// Property'e yorum ekle
-router.post('/:id/reviews', async (req, res) => {
+// 📌 Property'e yorum ekle
+router.post("/:id/reviews", async (req, res) => {
   try {
     const property = await Property.findById(req.params.id);
     if (!property) {
-      return res.status(404).json({ message: 'Property bulunamadı' });
+      return res.status(404).json({ message: "Property bulunamadı" });
     }
 
     const review = new Review({
@@ -106,7 +105,7 @@ router.post('/:id/reviews', async (req, res) => {
       userEmail: req.body.userEmail,
       rating: req.body.rating,
       comment: req.body.comment,
-      avatarUrl: req.body.avatarUrl || 'https://via.placeholder.com/50x50'
+      avatarUrl: req.body.avatarUrl || "https://via.placeholder.com/50x50"
     });
 
     const savedReview = await review.save();
@@ -116,25 +115,25 @@ router.post('/:id/reviews', async (req, res) => {
   }
 });
 
-// Review sil
-router.delete('/:propertyId/reviews/:reviewId', async (req, res) => {
+// 📌 Review sil
+router.delete("/:propertyId/reviews/:reviewId", async (req, res) => {
   try {
     const review = await Review.findByIdAndDelete(req.params.reviewId);
     if (!review) {
-      return res.status(404).json({ message: 'Review bulunamadı' });
+      return res.status(404).json({ message: "Review bulunamadı" });
     }
-    res.json({ message: 'Review başarıyla silindi' });
+    res.json({ message: "Review başarıyla silindi" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-// Benzer property'leri getir
-router.get('/:id/similar', async (req, res) => {
+// 📌 Benzer property'leri getir
+router.get("/:id/similar", async (req, res) => {
   try {
     const currentProperty = await Property.findById(req.params.id);
     if (!currentProperty) {
-      return res.status(404).json({ message: 'Property bulunamadı' });
+      return res.status(404).json({ message: "Property bulunamadı" });
     }
 
     const similarProperties = await Property.find({
@@ -146,14 +145,14 @@ router.get('/:id/similar', async (req, res) => {
       }
     }).limit(6);
 
-    res.json(similarProperties);
+    res.json(similarProperties.map(p => withScore(req, p)));
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-// Property oluştur
-router.post('/', async (req, res) => {
+// 📌 Property oluştur
+router.post("/", async (req, res) => {
   try {
     const property = new Property(req.body);
     const savedProperty = await property.save();
@@ -163,16 +162,15 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Property güncelle
-router.put('/:id', async (req, res) => {
+// 📌 Property güncelle
+router.put("/:id", async (req, res) => {
   try {
-    const property = await Property.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true, runValidators: true }
-    );
+    const property = await Property.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
     if (!property) {
-      return res.status(404).json({ message: 'Property bulunamadı' });
+      return res.status(404).json({ message: "Property bulunamadı" });
     }
     res.json(property);
   } catch (error) {
@@ -180,14 +178,14 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Property sil
-router.delete('/:id', async (req, res) => {
+// 📌 Property sil
+router.delete("/:id", async (req, res) => {
   try {
     const property = await Property.findByIdAndDelete(req.params.id);
     if (!property) {
-      return res.status(404).json({ message: 'Property bulunamadı' });
+      return res.status(404).json({ message: "Property bulunamadı" });
     }
-    res.json({ message: 'Property başarıyla silindi' });
+    res.json({ message: "Property başarıyla silindi" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

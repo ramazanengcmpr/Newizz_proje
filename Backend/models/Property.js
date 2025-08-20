@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { calculate_score_10 } = require('../scoring'); // ✅ skor fonksiyonunu ekledik
 
 // Alt şemalar
 const NearbyItemSchema = new mongoose.Schema({
@@ -26,7 +27,7 @@ const propertySchema = new mongoose.Schema({
     enum: ['For Sale', 'For Rent', 'Sold', 'Rented', 'Under Construction', 'Ready'],
     default: 'For Sale'
   },
-  score: { type: Number, min: 0, max: 5, default: 0 },
+  score: { type: Number, min: 0, max: 10, default: 0 },
   description: { type: String, required: true },
 
   // Görseller
@@ -68,6 +69,20 @@ const propertySchema = new mongoose.Schema({
     }
   },
 
+  // Faktörler (skor için gerekli alanlar)
+  roi: Number,
+  payment_plan: Number,
+  delivery: Number,
+  urgency: Number,
+  prestige: Number,
+  amenities: Number,
+  velocity: Number,
+  launch: Number,
+  price_per_sqm: Number,
+  horizon: Number,
+  type_fit: Number,
+  legal: Number,
+
   // SEO ve meta
   slug: { type: String, unique: true, required: false },
 
@@ -85,6 +100,24 @@ propertySchema.pre('save', function (next) {
       .replace(/\s+/g, '-')
       .replace(/-+/g, '-');
   }
+
+  // ✅ Skor otomatik hesaplama
+  const factors = {
+    roi: this.roi,
+    payment_plan: this.payment_plan,
+    delivery: this.delivery,
+    urgency: this.urgency,
+    prestige: this.prestige,
+    amenities: this.amenities,
+    velocity: this.velocity,
+    launch: this.launch,
+    price_per_sqm: this.price_per_sqm,
+    horizon: this.horizon,
+    type_fit: this.type_fit,
+    legal: this.legal
+  };
+  this.score = calculate_score_10(factors);
+
   next();
 });
 

@@ -3,6 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
+const authMiddleware = require("../middleware/authMiddleware");
 
 // ✅ Response helper
 function sendResponse(res, status, success, message, data = null) {
@@ -12,9 +13,10 @@ function sendResponse(res, status, success, message, data = null) {
 // === Kullanıcı Kayıt ===
 router.post("/signup", async (req, res) => {
     try {
-        const { username, email, password } = req.body;
+        const { username, name: rawName, email, password } = req.body;
+        const name = rawName || username; // formdan gelen her iki ismi de destekle
 
-        if (!username || !email || !password) {
+        if (!name || !email || !password) {
             return sendResponse(res, 400, false, "⚠️ Tüm alanlar zorunludur");
         }
 
@@ -24,16 +26,13 @@ router.post("/signup", async (req, res) => {
             return sendResponse(res, 400, false, "❌ Bu email zaten kayıtlı");
         }
 
-        // şifreyi hashle
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // yeni kullanıcı oluştur
-        const newUser = new User({ username, email, password: hashedPassword });
+        // yeni kullanıcı oluştur (şifre hash işlemi model pre('save') içinde yapılır)
+        const newUser = new User({ name, email, password });
         await newUser.save();
 
         return sendResponse(res, 201, true, "✅ Kullanıcı başarıyla oluşturuldu", {
             id: newUser._id,
-            username: newUser.username,
+            name: newUser.name,
             email: newUser.email
         });
     } catch (err) {
@@ -74,13 +73,40 @@ router.post("/login", async (req, res) => {
             token,
             user: {
                 id: user._id,
-                username: user.username,
-                email: user.email
+                name: user.name,
+                email: user.email,
+                role: user.role
             }
         });
     } catch (err) {
         console.error("Login Error:", err);
         return sendResponse(res, 500, false, "❌ Sunucu hatası");
+    }
+});
+
+// === Kullanıcıları listele (admin) ===
+router.get('/users', async (req, res) => {
+    try {
+        // Not: Üretimde bu endpoint public olmamalı. Şimdilik demo için açık.
+        const users = await User.find({}, '-password');
+        return res.status(200).json(users);
+    } catch (err) {
+        console.error('List Users Error:', err);
+        return res.status(500).json({ message: '❌ Sunucu hatası' });
+    }
+});
+
+// === Kullanıcı sil (admin panel) ===
+router.delete('/users/:id', async (req, res) => {
+    try {
+        const deleted = await User.findByIdAndDelete(req.params.id);
+        if (!deleted) {
+            return res.status(404).json({ message: 'User bulunamadı' });
+        }
+        return res.status(200).json({ message: 'User başarıyla silindi' });
+    } catch (err) {
+        console.error('Delete User Error:', err);
+        return res.status(500).json({ message: '❌ Sunucu hatası' });
     }
 });
 
