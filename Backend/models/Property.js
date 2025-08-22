@@ -25,7 +25,7 @@ const propertySchema = new mongoose.Schema({
   size: { type: Number, required: true }, // m² cinsinden
   status: {
     type: String,
-    enum: ['For Sale', 'For Rent', 'Sold', 'Rented', 'Under Construction', 'Ready'],
+    enum: ['For Sale', 'For Rent', 'Sold', 'Rented', 'Under Construction', 'Ready','Off-Plan'],
     default: 'For Sale'
   },
   score: { type: Number, min: 0, max: 10, default: 0 },
