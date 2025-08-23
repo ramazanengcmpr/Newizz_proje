@@ -240,7 +240,88 @@ const sampleProperties = [
     prestige: 7, amenities: 7, velocity: 6, launch: 6,
     price_per_sqm: 7, horizon: 7, type_fit: 7, legal: 7,
     lat: 25.210, lng: 55.280
+  },
+  {
+    title: "Modern Apartment - Downtown",
+    location: "Downtown Dubai",
+    price: 1200000,
+    bedrooms: 2,
+    bathrooms: 2,
+    size: 1200,
+    status: "Off-Plan",
+    propertyType: "Apartment",
+    description: "Modern apartment in the city center.",
+    mainImage: "assets/img/card_img_2.jpg",
+    roi: 6, payment_plan: 5, delivery: 7, urgency: 5,
+    prestige: 6, amenities: 7, velocity: 6, launch: 5,
+    price_per_sqm: 6, horizon: 5, type_fit: 6, legal: 7,
+    lat: 25.1972, lng: 55.2744
+  },
+  {
+    title: "Family House - Jumeirah Village",
+    location: "Jumeirah Village Circle",
+    price: 1800000,
+    bedrooms: 3,
+    bathrooms: 3,
+    size: 2000,
+    status: "Off-Plan",
+    propertyType: "House",
+    description: "Spacious family home in JVC.",
+    mainImage: "assets/img/card_img_3.jpg",
+    roi: 7, payment_plan: 6, delivery: 8, urgency: 6,
+    prestige: 7, amenities: 6, velocity: 7, launch: 6,
+    price_per_sqm: 7, horizon: 6, type_fit: 7, legal: 8,
+    lat: 25.0607, lng: 55.2044
+  },
+  {
+    title: "Palm Horizon Villa",
+    location: "Palm Jumeirah",
+    price: 4200000,
+    bedrooms: 4,
+    bathrooms: 5,
+    size: 3200,
+    status: "Off-Plan",
+    propertyType: "Villa",
+    description: "Exclusive Off-Plan villas with private pools.",
+    mainImage: "assets/img/card_img_4.jpg",
+    roi: 8, payment_plan: 6, delivery: 7, urgency: 5,
+    prestige: 9, amenities: 8, velocity: 6, launch: 6,
+    price_per_sqm: 8, horizon: 7, type_fit: 8, legal: 9,
+    lat: 25.112, lng: 55.139
+  },
+  {
+    title: "Skyline Tower",
+    location: "Business Bay",
+    price: 2000000,
+    bedrooms: 2,
+    bathrooms: 3,
+    size: 1600,
+    status: "Ready",
+    propertyType: "Apartment",
+    description: "High-rise apartments with Burj Khalifa view.",
+    mainImage: "assets/img/card_img_5.jpg",
+    roi: 7, payment_plan: 5, delivery: 8, urgency: 6,
+    prestige: 7, amenities: 8, velocity: 6, launch: 7,
+    price_per_sqm: 7, horizon: 7, type_fit: 6, legal: 7,
+    lat: 25.185, lng: 55.272
+  },
+  {
+    title: "Green Park Townhouse",
+    location: "Mirdif",
+    price: 1700000,
+    bedrooms: 3,
+    bathrooms: 3,
+    size: 2000,
+    status: "Ready",
+    propertyType: "Townhouse",
+    description: "Family-friendly Ready townhouses with gardens.",
+    mainImage: "assets/img/card_img_6.jpg",
+    roi: 6, payment_plan: 4, delivery: 7, urgency: 5,
+    prestige: 6, amenities: 6, velocity: 5, launch: 5,
+    price_per_sqm: 6, horizon: 6, type_fit: 6, legal: 7,
+    lat: 25.218, lng: 55.319
   }
+
 ];
 
 // ✅ Export
