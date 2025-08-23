@@ -320,8 +320,8 @@ const sampleProperties = [
     prestige: 6, amenities: 6, velocity: 5, launch: 5,
     price_per_sqm: 6, horizon: 6, type_fit: 6, legal: 7,
     lat: 25.218, lng: 55.319
-  }
-   {
+  },
+  {
   title: "Sunrise Residence - Creek Harbour",
   location: "Dubai Creek Harbour",
   price: 1500000,
