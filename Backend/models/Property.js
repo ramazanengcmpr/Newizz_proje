@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const { calculateScore10 } = require('../scoring'); 
 
-
 // Alt şemalar
 const NearbyItemSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -23,13 +22,19 @@ const propertySchema = new mongoose.Schema({
   bedrooms: { type: Number, required: true },
   bathrooms: { type: Number, required: true },
   size: { type: Number, required: true }, // m² cinsinden
+
   status: {
     type: String,
-    enum: ['For Sale', 'For Rent', 'Sold', 'Rented', 'Under Construction', 'Ready','Off-Plan'],
+    enum: ['For Sale', 'For Rent', 'Sold', 'Rented', 'Under Construction', 'Ready', 'Off-Plan'],
     default: 'For Sale'
   },
+
   score: { type: Number, min: 0, max: 10, default: 0 },
-  description: { type: String, required: true },
+
+  description: { 
+    type: String, 
+    default: "No description available." // ✅ Varsayılan
+  },
 
   // Görseller
   mainImage: { type: String, required: true },
@@ -58,14 +63,13 @@ const propertySchema = new mongoose.Schema({
     enum: ['Apartment', 'Villa', 'House', 'Condo', 'Townhouse'],
     required: true
   },
+
   yearBuilt: {
     type: Number,
     min: 1900,
     max: 2030,
     validate: {
-      validator: function (v) {
-        return !v || (v >= 1900 && v <= 2030);
-      },
+      validator: v => !v || (v >= 1900 && v <= 2030),
       message: 'Year Built must be between 1900 and 2030'
     }
   },
@@ -85,17 +89,15 @@ const propertySchema = new mongoose.Schema({
   legal: Number,
 
   // SEO ve meta
-  slug: { type: String, unique: true, required: false },
-
-  // Tarih bilgileri
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now }
+  slug: { type: String, unique: true },
 
 }, { timestamps: true });
 
-// Slug oluşturma middleware
+
+// Slug + Skor middleware
 propertySchema.pre('save', function (next) {
-  if (!this.slug) {
+  // Slug otomatik
+  if (!this.slug && this.title) {
     this.slug = this.title.toLowerCase()
       .replace(/[^a-z0-9 -]/g, '')
       .replace(/\s+/g, '-')
@@ -117,8 +119,11 @@ propertySchema.pre('save', function (next) {
     type_fit: this.type_fit,
     legal: this.legal
   };
-    this.score = calculateScore10(factors);
 
+  // Faktörlerden en az biri varsa hesapla
+  if (Object.values(factors).some(v => v !== undefined && v !== null)) {
+    this.score = calculateScore10(factors);
+  }
 
   next();
 });

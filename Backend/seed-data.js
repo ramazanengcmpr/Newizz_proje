@@ -480,7 +480,72 @@ const sampleProperties = [
     prestige: 10, amenities: 10, velocity: 7, launch: 7,
     price_per_sqm: 9, horizon: 8, type_fit: 9, legal: 10,
     lat: 25.100, lng: 55.310
-  }
+  },
+  {
+      title: "Marina Heights Apartment",
+      location: "Dubai Marina",
+      price: 1850000,
+      bedrooms: 2,
+      bathrooms: 2,
+      size: 1450,
+      status: "Ready",
+      propertyType: "Apartment",
+      description: "Modern apartment with full Marina view, high-end finishing, and access to a shared gym and swimming pool.",
+      mainImage: "assets/img/card_img_13.jpg",
+      roi: 6, payment_plan: 6, delivery: 9, urgency: 5,
+      prestige: 9, amenities: 9, velocity: 7, launch: 6,
+      price_per_sqm: 8, horizon: 7, type_fit: 8, legal: 9,
+      lat: 25.080, lng: 55.140
+    },
+    {
+      title: "Palm Luxury Villa",
+      location: "Palm Jumeirah",
+      price: 7500000,
+      bedrooms: 5,
+      bathrooms: 6,
+      size: 6000,
+      status: "Ready",
+      propertyType: "Villa",
+      description: "Exclusive beachfront villa with private pool, direct beach access, and panoramic sea views.",
+      mainImage: "assets/img/card_img_14.jpg",
+      roi: 9, payment_plan: 7, delivery: 10, urgency: 9,
+      prestige: 10, amenities: 10, velocity: 8, launch: 6,
+      price_per_sqm: 9, horizon: 9, type_fit: 9, legal: 9,
+      lat: 25.120, lng: 55.150
+    },
+    {
+      title: "Downtown Executive Condo",
+      location: "Downtown Dubai",
+      price: 2200000,
+      bedrooms: 3,
+      bathrooms: 3,
+      size: 2000,
+      status: "Ready",
+      propertyType: "Condo",
+      description: "Luxury condo in Downtown with Burj Khalifa view, smart home system, and walking distance to Dubai Mall.",
+      mainImage: "assets/img/card_img_15.jpg",
+      roi: 8, payment_plan: 6, delivery: 8, urgency: 7,
+      prestige: 9, amenities: 9, velocity: 7, launch: 5,
+      price_per_sqm: 8, horizon: 8, type_fit: 9, legal: 9,
+      lat: 25.195, lng: 55.275
+    },
+    {
+      title: "JVC Family House",
+      location: "Jumeirah Village Circle",
+      price: 950000,
+      bedrooms: 2,
+      bathrooms: 2,
+      size: 1300,
+      status: "Ready",
+      propertyType: "House",
+      description: "Affordable family home in JVC with access to community parks, schools, and retail stores. Perfect for young families.",
+      mainImage: "assets/img/card_img_16.jpg",
+      roi: 5, payment_plan: 5, delivery: 7, urgency: 4,
+      prestige: 6, amenities: 7, velocity: 5, launch: 4,
+      price_per_sqm: 6, horizon: 6, type_fit: 7, legal: 8,
+      lat: 25.065, lng: 55.210
+    }
+
 ];
 
 // ✅ Export
