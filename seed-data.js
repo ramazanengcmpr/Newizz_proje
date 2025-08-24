@@ -18,20 +18,19 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/newizz', {
 });
 
 // ==== DÜZELTİLMİŞ TEST VERİLERİ ====
-
 // Properties
 const sampleProperties = [
   {
-    title: "Lüks Villa - Deniz Manzaralı",
+    title: "Luxury Villa - Sea View",
     price: 2500000,
-    location: "Beşiktaş, İstanbul",
+    location: "Beşiktaş, Istanbul",
     bedrooms: 4,
     bathrooms: 3,
     size: 280,                // m²
     status: "For Sale",
-    score: 4.8,               // opsiyonel
+    score: 4.8,               // optional
     description:
-      "Deniz manzaralı, lüks donanımlı, özel havuzlu villa. Modern tasarım ve yüksek kaliteli malzemeler kullanılmıştır.",
+      "Luxury villa with sea view, private pool, modern design, and high-quality materials.",
     mainImage: "/assets/img/property_img_1.jpg",
     images: [
       "/assets/img/property_img_1.jpg",
@@ -39,57 +38,57 @@ const sampleProperties = [
       "/assets/img/property_img_3.jpg"
     ],
     features: [
-      "Özel Havuz",
-      "Akıllı Ev Sistemi",
-      "Güvenlik Sistemi",
-      "Garaj (2 Araç)",
-      "Bahçe",
-      "Teras",
-      "Klima",
-      "Asansör"
+      "Private Pool",
+      "Smart Home System",
+      "Security System",
+      "Garage (2 Cars)",
+      "Garden",
+      "Terrace",
+      "Air Conditioning",
+      "Elevator"
     ],
     floorPlans: [
       {
-        title: "Zemin Kat",
+        title: "Ground Floor",
         image: "/assets/img/floor_1.png",
-        description: "Oturma odası, yemek odası, mutfak, 1 yatak odası"
+        description: "Living room, dining room, kitchen, 1 bedroom"
       },
       {
-        title: "1. Kat",
+        title: "First Floor",
         image: "/assets/img/floor_1.png",
-        description: "3 yatak odası, 2 banyo, çalışma odası"
+        description: "3 bedrooms, 2 bathrooms, study room"
       }
     ],
     videoUrl: "https://www.youtube.com/watch?v=example1",
     virtualVideoUrl: "https://www.youtube.com/watch?v=example2",
     nearby: {
       education: [
-        { name: "İstanbul Teknik Üniversitesi", distance: "1.2 km", type: "Üniversite" },
-        { name: "Beşiktaş Anadolu Lisesi", distance: "0.8 km", type: "Lise" }
+        { name: "Istanbul Technical University", distance: "1.2 km", type: "University" },
+        { name: "Beşiktaş Anatolian High School", distance: "0.8 km", type: "High School" }
       ],
       stores: [
-        { name: "Carrefour", distance: "0.5 km", type: "Süpermarket" },
-        { name: "Migros", distance: "1.0 km", type: "Süpermarket" }
+        { name: "Carrefour", distance: "0.5 km", type: "Supermarket" },
+        { name: "Migros", distance: "1.0 km", type: "Supermarket" }
       ],
       health: [
-        { name: "Beşiktaş Devlet Hastanesi", distance: "1.5 km", type: "Hastane" },
-        { name: "Özel Tıp Merkezi", distance: "0.7 km", type: "Sağlık Merkezi" }
+        { name: "Beşiktaş State Hospital", distance: "1.5 km", type: "Hospital" },
+        { name: "Private Medical Center", distance: "0.7 km", type: "Medical Center" }
       ]
     },
     propertyType: "Villa",
-    slug: "luks-villa-deniz-manzarali"
+    slug: "luxury-villa-sea-view"
   },
   {
-    title: "Modern Daire - Şehir Merkezi",
+    title: "Modern Apartment - City Center",
     price: 850000,
-    location: "Kadıköy, İstanbul",
+    location: "Kadıköy, Istanbul",
     bedrooms: 2,
     bathrooms: 1,
     size: 95,                 // m²
     status: "For Sale",
-    score: 4.5,               // opsiyonel
+    score: 4.5,               // optional
     description:
-      "Şehir merkezinde, ulaşımı kolay, modern tasarımlı daire. Metro ve otobüs duraklarına yakın.",
+      "Modern apartment located in the city center, easy transportation access, close to metro and bus stops.",
     mainImage: "/assets/img/card_img_1.jpg",
     images: [
       "/assets/img/card_img_1.jpg",
@@ -97,57 +96,57 @@ const sampleProperties = [
       "/assets/img/card_img_3.jpg"
     ],
     features: [
-      "Klima",
-      "Asansör",
-      "Güvenlik",
-      "Otopark",
-      "Balkon",
-      "Ebeveyn Banyosu"
+      "Air Conditioning",
+      "Elevator",
+      "Security",
+      "Parking Lot",
+      "Balcony",
+      "En-Suite Bathroom"
     ],
     floorPlans: [
       {
-        title: "Tek Kat",
+        title: "Single Floor",
         image: "/assets/img/floor_1.png",
-        description: "2 yatak odası, 1 banyo, oturma odası, mutfak"
+        description: "2 bedrooms, 1 bathroom, living room, kitchen"
       }
     ],
     videoUrl: "https://www.youtube.com/watch?v=example3",
     virtualVideoUrl: null,
     nearby: {
       education: [
-        { name: "Kadıköy Anadolu Lisesi", distance: "0.3 km", type: "Lise" },
-        { name: "Marmara Üniversitesi", distance: "2.1 km", type: "Üniversite" }
+        { name: "Kadıköy Anatolian High School", distance: "0.3 km", type: "High School" },
+        { name: "Marmara University", distance: "2.1 km", type: "University" }
       ],
       stores: [
         { name: "A101", distance: "0.2 km", type: "Market" },
-        { name: "BİM", distance: "0.4 km", type: "Market" }
+        { name: "BIM", distance: "0.4 km", type: "Market" }
       ],
       health: [
-        { name: "Kadıköy Devlet Hastanesi", distance: "1.8 km", type: "Hastane" },
-        { name: "Özel Klinik", distance: "0.6 km", type: "Klinik" }
+        { name: "Kadıköy State Hospital", distance: "1.8 km", type: "Hospital" },
+        { name: "Private Clinic", distance: "0.6 km", type: "Clinic" }
       ]
     },
     propertyType: "Apartment",
-    slug: "modern-daire-sehir-merkezi"
+    slug: "modern-apartment-city-center"
   }
 ];
 
 // Reviews
 const sampleReviews = [
   {
-    propertyId: null, // seed sırasında ilişkilendirilecek
+    propertyId: null, // will be linked during seeding
     userName: "Ahmet Yılmaz",
     userAvatar: "/assets/img/avatar_1.jpg",
     rating: 5,
     comment:
-      "Harika bir ev! Deniz manzarası muhteşem ve konumu çok merkezi. Kesinlikle tavsiye ederim."
+      "Amazing house! The sea view is incredible and the location is very central. Highly recommended."
   },
   {
     propertyId: null,
     userName: "Ayşe Demir",
     userAvatar: "/assets/img/avatar_2.jpg",
     rating: 4,
-    comment: "Güzel ev ama fiyat biraz yüksek. Yine de kalitesi fiyatına değer."
+    comment: "Beautiful house but a bit expensive. Still, the quality is worth the price."
   },
   {
     propertyId: null,
@@ -155,36 +154,36 @@ const sampleReviews = [
     userAvatar: "/assets/img/avatar_3.jpg",
     rating: 5,
     comment:
-      "Mükemmel! Tüm beklentilerimi karşıladı. Özellikle güvenlik sistemi çok iyi."
+      "Perfect! Met all my expectations. Especially impressed with the security system."
   }
 ];
 
 // FAQs
 const sampleFAQs = [
   {
-    question: "Emlak alım-satım işlemlerinde hangi belgeler gerekli?",
+    question: "Which documents are required for real estate transactions?",
     answer:
-      "Kimlik fotokopisi, tapu, emlak beyannamesi, vergi levhası ve gerekli diğer belgeler gereklidir.",
+      "ID copy, title deed, real estate declaration, tax certificate, and other required documents.",
     category: "Property",
     order: 1
   },
   {
-    question: "Kredi çekmek için hangi şartlar aranır?",
+    question: "What are the conditions for taking a loan?",
     answer:
-      "Düzenli gelir, kredi notu, teminat ve bankanın belirlediği diğer şartlar aranır.",
+      "Regular income, credit score, collateral, and other conditions determined by the bank.",
     category: "Payment",
     order: 2
   },
   {
-    question: "Emlak vergisi ne zaman ödenir?",
+    question: "When is property tax paid?",
     answer:
-      "Emlak vergisi yılda iki taksit halinde Mart ve Kasım aylarında ödenir.",
+      "Property tax is paid twice a year, in March and November.",
     category: "Legal",
     order: 3
   },
   {
-    question: "Tapu işlemleri ne kadar sürer?",
-    answer: "Normal şartlarda tapu işlemleri 1–3 iş günü içinde tamamlanır.",
+    question: "How long do title deed transactions take?",
+    answer: "Under normal conditions, title deed transactions are completed within 1–3 business days.",
     category: "Property",
     order: 4
   }
@@ -193,39 +192,10 @@ const sampleFAQs = [
 const samplePropertiesWithScore = sampleProperties.map(property => {
   return {
     ...property,
-    score: calculateScore(property) // scoring.js fonksiyonunu kullan
+    score: calculateScore(property) // use scoring.js function
   };
 });
 
-
-// --- Veritabanını doldur ---
-async function seedDatabase() {
-  try {
-    await Property.deleteMany({});
-    await Review.deleteMany({});
-    await FAQ.deleteMany({});
-
-    const savedProperties = await Property.insertMany(samplePropertiesWithScore);
-
-    console.log(`${savedProperties.length} property eklendi`);
-
-    const reviewsWithPropertyId = sampleReviews.map((review, index) => ({
-      ...review,
-      propertyId: savedProperties[index % savedProperties.length]._id
-    }));
-    const savedReviews = await Review.insertMany(reviewsWithPropertyId);
-    console.log(`${savedReviews.length} review eklendi`);
-
-    const savedFAQs = await FAQ.insertMany(sampleFAQs);
-    console.log(`${savedFAQs.length} FAQ eklendi`);
-
-    console.log('✅ Test verisi başarıyla eklendi!');
-    process.exit(0);
-  } catch (error) {
-    console.error('❌ Test verisi eklenirken hata:', error);
-    process.exit(1);
-  }
-}
 
 // Script çalıştırılırsa seed işlemini başlat
 if (require.main === module) {
