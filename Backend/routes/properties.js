@@ -3,35 +3,54 @@ const router = express.Router();
 const Property = require("../models/Property");
 const Review = require("../models/Review");
 
-// Score hesaplama yardımcı fonksiyon
-function withScore(req, property) {
+// 📌 Helper: Property'yi frontend formatına çevir (score + key mapping)
+function mapProperty(req, property) {
   const calculateScore10 = req.app.locals.calculateScore10;
+  const score = calculateScore10({
+    roi: property.roi,
+    payment_plan: property.payment_plan,
+    delivery: property.delivery,
+    urgency: property.urgency,
+    prestige: property.prestige,
+    amenities: property.amenities,
+    velocity: property.velocity,
+    launch: property.launch,
+    price_per_sqm: property.price_per_sqm,
+    horizon: property.horizon,
+    type_fit: property.type_fit,
+    legal: property.legal
+  });
+
   return {
-    ...property.toObject(),
-    score: calculateScore10({
-      roi: property.roi,
-      payment_plan: property.payment_plan,
-      delivery: property.delivery,
-      urgency: property.urgency,
-      prestige: property.prestige,
-      amenities: property.amenities,
-      velocity: property.velocity,
-      launch: property.launch,
-      price_per_sqm: property.price_per_sqm,
-      horizon: property.horizon,
-      type_fit: property.type_fit,
-      legal: property.legal
-    })
+    _id: property._id,
+    title: property.title,
+    location: property.location,
+    price: property.price,
+    status: property.status,
+    description: property.description,
+    propertyType: property.propertyType,
+    lat: property.lat,
+    lng: property.lng,
+    features: property.features || [],
+    images: property.images || [],
+
+    // ✅ key mapping
+    image: property.mainImage,      // mainImage → image
+    beds: property.bedrooms,        // bedrooms → beds
+    baths: property.bathrooms,      // bathrooms → baths
+    area: property.size,            // size → area
+
+    // ✅ score
+    score
   };
 }
 
-// 📌 Tüm property'leri getir (filtre + score eklenmiş)
+// 📌 Tüm property'leri getir (filtre + mapping + score)
 router.get("/", async (req, res) => {
   try {
     const { type, status, location, bedrooms, minPrice, maxPrice } = req.query;
     let filter = {};
 
-    // ✅ Çoklu filtre desteği
     if (type) filter.propertyType = Array.isArray(type) ? { $in: type } : type;
     if (status) filter.status = Array.isArray(status) ? { $in: status } : status;
     if (location) filter.location = Array.isArray(location) ? { $in: location } : location;
@@ -47,9 +66,7 @@ router.get("/", async (req, res) => {
     }
 
     const properties = await Property.find(filter).sort({ createdAt: -1 });
-    const withScores = properties.map(p => withScore(req, p));
-
-    res.json(withScores);
+    res.json(properties.map(p => mapProperty(req, p)));
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -59,10 +76,9 @@ router.get("/", async (req, res) => {
 router.get("/slug/:slug", async (req, res) => {
   try {
     const property = await Property.findOne({ slug: req.params.slug });
-    if (!property) {
-      return res.status(404).json({ message: "Property bulunamadı" });
-    }
-    res.json(withScore(req, property));
+    if (!property) return res.status(404).json({ message: "Property bulunamadı" });
+
+    res.json(mapProperty(req, property));
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -72,10 +88,9 @@ router.get("/slug/:slug", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const property = await Property.findById(req.params.id);
-    if (!property) {
-      return res.status(404).json({ message: "Property bulunamadı" });
-    }
-    res.json(withScore(req, property));
+    if (!property) return res.status(404).json({ message: "Property bulunamadı" });
+
+    res.json(mapProperty(req, property));
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -95,9 +110,7 @@ router.get("/:id/reviews", async (req, res) => {
 router.post("/:id/reviews", async (req, res) => {
   try {
     const property = await Property.findById(req.params.id);
-    if (!property) {
-      return res.status(404).json({ message: "Property bulunamadı" });
-    }
+    if (!property) return res.status(404).json({ message: "Property bulunamadı" });
 
     const review = new Review({
       propertyId: req.params.id,
@@ -119,9 +132,8 @@ router.post("/:id/reviews", async (req, res) => {
 router.delete("/:propertyId/reviews/:reviewId", async (req, res) => {
   try {
     const review = await Review.findByIdAndDelete(req.params.reviewId);
-    if (!review) {
-      return res.status(404).json({ message: "Review bulunamadı" });
-    }
+    if (!review) return res.status(404).json({ message: "Review bulunamadı" });
+
     res.json({ message: "Review başarıyla silindi" });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -132,9 +144,7 @@ router.delete("/:propertyId/reviews/:reviewId", async (req, res) => {
 router.get("/:id/similar", async (req, res) => {
   try {
     const currentProperty = await Property.findById(req.params.id);
-    if (!currentProperty) {
-      return res.status(404).json({ message: "Property bulunamadı" });
-    }
+    if (!currentProperty) return res.status(404).json({ message: "Property bulunamadı" });
 
     const similarProperties = await Property.find({
       _id: { $ne: req.params.id },
@@ -145,7 +155,7 @@ router.get("/:id/similar", async (req, res) => {
       }
     }).limit(6);
 
-    res.json(similarProperties.map(p => withScore(req, p)));
+    res.json(similarProperties.map(p => mapProperty(req, p)));
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -169,9 +179,8 @@ router.put("/:id", async (req, res) => {
       new: true,
       runValidators: true
     });
-    if (!property) {
-      return res.status(404).json({ message: "Property bulunamadı" });
-    }
+    if (!property) return res.status(404).json({ message: "Property bulunamadı" });
+
     res.json(property);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -182,9 +191,8 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const property = await Property.findByIdAndDelete(req.params.id);
-    if (!property) {
-      return res.status(404).json({ message: "Property bulunamadı" });
-    }
+    if (!property) return res.status(404).json({ message: "Property bulunamadı" });
+
     res.json({ message: "Property başarıyla silindi" });
   } catch (error) {
     res.status(500).json({ message: error.message });
