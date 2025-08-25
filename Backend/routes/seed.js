@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Property = require("../models/Property");
-const sampleProperties = require("../seed-data");
+const { sampleProperties } = require("../seed-data");
+const calculateScore = require("../scoring");
 
 // Seed endpoint
 router.get("/", async (req, res) => {
@@ -10,15 +11,16 @@ router.get("/", async (req, res) => {
     await Property.deleteMany({});
     console.log("🗑️ Mevcut veriler temizlendi");
 
-    const inserted = [];
+    // Skor eklenmiş veriler
+    const samplePropertiesWithScore = sampleProperties.map(p => ({
+      ...p,
+      score: calculateScore(p),
+    }));
 
     // Yeni verileri ekle
-    for (const property of sampleProperties) {
-      const doc = new Property(property);
-      await doc.save();
-      inserted.push(doc);
-      console.log(`✅ ${property.title} eklendi (skor: ${doc.score}, lat: ${doc.lat}, lng: ${doc.lng})`);
-    }
+    const inserted = await Property.insertMany(samplePropertiesWithScore);
+
+    console.log(`✅ ${inserted.length} property eklendi`);
 
     // JSON cevabı (lat/lng dahil)
     res.json({
