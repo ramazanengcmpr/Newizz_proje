@@ -18,6 +18,81 @@ const sampleProperties = [
     lat: 25.112, lng: 55.139
   },
   {
+    title: "Avenew 888 Residences",
+    location: "Dubai",
+    price: 0,
+    bedrooms: 1,
+    bathrooms: 1,
+    size: 621,
+    status: "Offplan - Completion Q1 2028",
+    propertyType: "Apartments",
+    description: "Five unique buildings with modern facades...",
+    mainImage: "assets/img/avenew/avenew (1).jpg",
+    images: [
+      "assets/img/avenew/avenew (2).jpg",
+      "assets/img/avenew/avenew (3).jpg"
+    ],
+    features: [
+      "Amphitheatre", "Coworking Spaces", "Jogging Track"
+    ],
+    roi: 7, payment_plan: 60, delivery: 2028,
+    urgency: 6, prestige: 7, amenities: 9, velocity: 6,
+    launch: 2024, price_per_sqm: null, horizon: 8,
+    type_fit: 7, legal: 7,
+    lat: 25.200, lng: 55.300
+  },
+  {
+    title: "Imtiaz Wynwood Residence",
+    location: "Dubai Waterfront",
+    price: 0,
+    bedrooms: 1,
+    bathrooms: 1,
+    size: 593,
+    status: "Offplan - Completion Q3 2027",
+    propertyType: "Luxury Apartments",
+    description: "Ultra-luxury waterfront residences...",
+    mainImage: "assets/img/wynwood/Imtiaz (1).jpg",
+    images: [
+      "assets/img/wynwood/Imtiaz (2).jpg",
+      "assets/img/wynwood/Imtiaz (3).jpg",
+      "assets/img/wynwood/Imtiaz (4).jpg"
+    ],
+    features: [
+      "Rooftop Infinity Pool", "VIP Parking", "Jacuzzi"
+    ],
+    roi: 8, payment_plan: 60, delivery: 2027,
+    urgency: 7, prestige: 9, amenities: 9, velocity: 7,
+    launch: 2025, price_per_sqm: null, horizon: 8,
+    type_fit: 8, legal: 8,
+    lat: 25.220, lng: 55.320
+  },
+  {
+    title: "Sobha Central",
+    location: "Sheikh Zayed Road, Dubai",
+    price: 0,
+    bedrooms: 1,
+    bathrooms: 1,
+    size: 750,
+    status: "Offplan - Completion Dec 2029",
+    propertyType: "Mixed Use Apartments",
+    description: "Landmark community of 6 towers...",
+    mainImage: "assets/img/sobha/SobhaCentral (1).jpg",
+    images: [
+      "assets/img/sobha/SobhaCentral (2).jpg",
+      "assets/img/sobha/SobhaCentral (3).jpg",
+      "assets/img/sobha/SobhaCentral (4).jpg",
+      "assets/img/sobha/SobhaCentral (5).jpg"
+    ],
+    features: [
+      "Lap Pool", "Outdoor Cinema", "Football Ground"
+    ],
+    roi: 8, payment_plan: 60, delivery: 2029,
+    urgency: 5, prestige: 9, amenities: 10, velocity: 6,
+    launch: 2024, price_per_sqm: null, horizon: 9,
+    type_fit: 9, legal: 8,
+    lat: 25.235, lng: 55.345
+  },
+  {
     title: "Modern Apartment - Downtown",
     location: "Downtown Dubai",
     price: 1200000,

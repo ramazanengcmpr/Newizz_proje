@@ -2,7 +2,7 @@ console.log("✅ seed.js route yüklendi");
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
+const path = require("path");
 // Route modules
 const propertiesRouter = require('./routes/properties');
 const faqsRouter = require('./routes/faqs');
@@ -37,7 +37,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use("/assets/img", express.static(path.join(__dirname, "uploads")));
 // 🧮 Score calculator global
 app.locals.calculateScore = calculateScore;
 app.locals.calculateScore10 = calculateScore10;

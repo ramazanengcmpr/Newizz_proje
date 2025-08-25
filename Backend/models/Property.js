@@ -33,7 +33,7 @@ const propertySchema = new mongoose.Schema({
 
   description: { 
     type: String, 
-    default: "No description available." // ✅ Varsayılan
+    default: "No description available."
   },
 
   // Görseller
@@ -95,13 +95,23 @@ const propertySchema = new mongoose.Schema({
 
 
 // Slug + Skor middleware
-propertySchema.pre('save', function (next) {
-  // Slug otomatik
+propertySchema.pre('save', async function (next) {
+  // ✅ Slug otomatik
   if (!this.slug && this.title) {
-    this.slug = this.title.toLowerCase()
+    let baseSlug = this.title.toLowerCase()
       .replace(/[^a-z0-9 -]/g, '')
       .replace(/\s+/g, '-')
       .replace(/-+/g, '-');
+
+    let slug = baseSlug;
+    let counter = 1;
+
+    // aynı slug varsa benzersiz hale getir
+    while (await mongoose.models.Property.findOne({ slug })) {
+      slug = `${baseSlug}-${counter++}`;
+    }
+
+    this.slug = slug;
   }
 
   // ✅ Skor otomatik hesaplama
@@ -120,7 +130,6 @@ propertySchema.pre('save', function (next) {
     legal: this.legal
   };
 
-  // Faktörlerden en az biri varsa hesapla
   if (Object.values(factors).some(v => v !== undefined && v !== null)) {
     this.score = calculateScore10(factors);
   }
